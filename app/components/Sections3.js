@@ -241,7 +241,7 @@ export function BeyondEvent() {
   const points = beyond;
   return (
     <section id="beyond" data-screen-label="Beyond the Event" style={{ position: 'relative', overflow: 'hidden', padding: '120px clamp(24px,6vw,96px)' }}>
-      <ParallaxBg src="/assets/backgrounds/circles-06.png" align="right center" scrim="left" />
+      <ParallaxBg src="/assets/backgrounds/circles-06.webp" align="right center" scrim="left" />
       <div style={{ position: 'relative', zIndex: 2, maxWidth: 1360, margin: '0 auto' }}>
         <Reveal><Eyebrow tone="red">Beyond the event</Eyebrow></Reveal>
         <Reveal delay={0.05} style={{ marginTop: 26 }}>

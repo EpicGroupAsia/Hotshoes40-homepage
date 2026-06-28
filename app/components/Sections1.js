@@ -59,7 +59,7 @@ export function Hero() {
           position: 'absolute', right: '-6%', top: 0, height: '100%', width: 'min(64vw, 980px)',
           display: 'flex', alignItems: 'center', willChange: 'transform',
         }}>
-          <img src="/assets/backgrounds/circles-04.png" alt="" style={{
+          <img src="/assets/backgrounds/circles-04.webp" alt="" style={{
             width: '100%', maxWidth: 'none', filter: 'saturate(1.05)',
             animation: prefersReduced() ? 'none' : 'hs-disc-float 16s ease-in-out infinite',
           }} />
