@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { nav } from "../data/content";
 
 export const C = {
@@ -179,26 +180,27 @@ export function SiteHeader() {
         <span style={{ width: 26, height: 2, background: C.ink, opacity: open ? 0 : 1, transition: 'opacity .2s' }} />
         <span style={{ width: 26, height: 2, background: C.ink, transition: 'transform .3s', transform: open ? 'translateY(-8px) rotate(-45deg)' : 'none' }} />
       </button>
-      {mounted && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 1090, background: 'rgba(4,3,10,0.62)', opacity: open ? 1 : 0, visibility: open ? 'visible' : 'hidden', transition: 'opacity .35s ease, visibility .35s', pointerEvents: open ? 'auto' : 'none' }} onClick={() => setOpen(false)} aria-hidden="true" />
-      )}
-      {mounted && (
-        <div role="dialog" aria-modal="true" aria-label="Menu" style={{
-          position: 'fixed', inset: '0 0 0 auto', width: 'min(82vw,360px)', zIndex: 1100,
-          background: '#0A0814', borderLeft: `1px solid ${C.line}`, boxShadow: '-30px 0 60px rgba(0,0,0,0.5)',
-          transform: open ? 'translateX(0)' : 'translateX(100%)', transition: 'transform .4s var(--ease-entrance)',
-          display: 'flex', flexDirection: 'column', gap: 8, padding: '96px 28px 28px',
-        }}>
-          <button aria-label="Close menu" onClick={() => setOpen(false)}
-            style={{ position: 'absolute', top: 26, right: 24, width: 40, height: 40, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'none', border: `1px solid ${C.line}`, borderRadius: 'var(--radius-button)', color: C.ink, cursor: 'pointer', fontSize: 20, lineHeight: 1 }}>×</button>
-          {nav.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}
-              style={{ fontFamily: F.display, fontWeight: 700, fontSize: 26, textTransform: 'uppercase', textDecoration: 'none', color: C.ink, padding: '10px 0', borderBottom: `1px solid ${C.line}` }}>
-              <span style={{ fontFamily: F.mono, fontSize: 13, color: C.cyan, marginRight: 12 }}>{item.n}</span>{item.label}
-            </a>
-          ))}
-          <a href="#contact" onClick={() => setOpen(false)} style={{ marginTop: 16, textAlign: 'center', fontFamily: F.mono, fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none', color: '#fff', background: C.red, padding: '16px', borderRadius: 'var(--radius-button)' }}>Start a Project</a>
-        </div>
+      {mounted && createPortal(
+        <>
+          <div style={{ position: 'fixed', inset: 0, zIndex: 1090, background: 'rgba(4,3,10,0.62)', opacity: open ? 1 : 0, visibility: open ? 'visible' : 'hidden', transition: 'opacity .35s ease, visibility .35s', pointerEvents: open ? 'auto' : 'none' }} onClick={() => setOpen(false)} aria-hidden="true" />
+          <div role="dialog" aria-modal="true" aria-label="Menu" style={{
+            position: 'fixed', inset: '0 0 0 auto', width: 'min(82vw,360px)', zIndex: 1100,
+            background: '#0A0814', borderLeft: `1px solid ${C.line}`, boxShadow: '-30px 0 60px rgba(0,0,0,0.5)',
+            transform: open ? 'translateX(0)' : 'translateX(100%)', transition: 'transform .4s var(--ease-entrance)',
+            display: 'flex', flexDirection: 'column', gap: 8, padding: '96px 28px 28px',
+          }}>
+            <button aria-label="Close menu" onClick={() => setOpen(false)}
+              style={{ position: 'absolute', top: 26, right: 24, width: 40, height: 40, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'none', border: `1px solid ${C.line}`, borderRadius: 'var(--radius-button)', color: C.ink, cursor: 'pointer', fontSize: 20, lineHeight: 1 }}>×</button>
+            {nav.map((item) => (
+              <a key={item.href} href={item.href} onClick={() => setOpen(false)}
+                style={{ fontFamily: F.display, fontWeight: 700, fontSize: 26, textTransform: 'uppercase', textDecoration: 'none', color: C.ink, padding: '10px 0', borderBottom: `1px solid ${C.line}` }}>
+                <span style={{ fontFamily: F.mono, fontSize: 13, color: C.cyan, marginRight: 12 }}>{item.n}</span>{item.label}
+              </a>
+            ))}
+            <a href="#contact" onClick={() => setOpen(false)} style={{ marginTop: 16, textAlign: 'center', fontFamily: F.mono, fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none', color: '#fff', background: C.red, padding: '16px', borderRadius: 'var(--radius-button)' }}>Start a Project</a>
+          </div>
+        </>,
+        document.body
       )}
     </header>
   );
