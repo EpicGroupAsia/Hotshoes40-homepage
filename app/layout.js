@@ -25,6 +25,10 @@ export const metadata = {
   robots: { index: true, follow: true },
 };
 
+export const viewport = {
+  themeColor: "#07060F",
+};
+
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",

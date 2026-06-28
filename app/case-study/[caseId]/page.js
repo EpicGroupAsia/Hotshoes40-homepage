@@ -36,5 +36,42 @@ export async function generateMetadata({ params }) {
 
 export default async function CaseStudyPage({ params }) {
   const { caseId } = await params;
-  return <CaseStudyView caseId={caseId} />;
+  const cs = cases.find((c) => c.n === caseId) || cases[0];
+  const url = `${SITE_URL}/case-study/${cs.n}`;
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: cs.title,
+    headline: cs.title,
+    description: cs.impact || cs.experience || cs.challenge,
+    image: `${SITE_URL}${cs.photo}`,
+    url,
+    about: cs.client,
+    creator: { "@type": "Organization", name: "Hotshoes Asia", url: SITE_URL },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Work", item: `${SITE_URL}/#work` },
+      { "@type": "ListItem", position: 3, name: cs.title, item: url },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <CaseStudyView caseId={caseId} />
+    </>
+  );
 }
