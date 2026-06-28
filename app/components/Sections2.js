@@ -196,7 +196,6 @@ export function Capabilities() {
   return (
     <Section id="capabilities" bg="charcoal" screen="Capabilities">
       <div ref={ref} onMouseMove={onMove} className="hs-cap-stage" style={{ position: 'relative' }}>
-        <DiscField />
         <div aria-hidden="true" className="hs-cap-spot" />
         <div style={{ position: 'relative', zIndex: 1 }}>
           <Reveal><Eyebrow>What we do</Eyebrow></Reveal>
@@ -215,28 +214,6 @@ export function Capabilities() {
   );
 }
 
-const DISC_MASK = 'radial-gradient(closest-side, #000 48%, rgba(0,0,0,0.35) 70%, transparent 100%)';
-const DISC_CFG = [
-  { src: 'circles-02.png', top: '-22%', right: '-8%', size: 'clamp(320px,32vw,560px)', op: 0.78 },
-  { src: 'circles-07.png', bottom: '-26%', right: '6%', size: 'clamp(340px,34vw,600px)', op: 0.66 },
-  { src: 'circles-04.png', top: '30%', left: '-14%', size: 'clamp(260px,24vw,440px)', op: 0.54 },
-];
-function DiscField() {
-  return (
-    <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
-      {DISC_CFG.map((d, i) => (
-        <div key={i} style={{ position: 'absolute', top: d.top, bottom: d.bottom, left: d.left, right: d.right }}>
-          <img src={`/assets/backgrounds/${d.src}`} alt="" style={{
-            display: 'block', width: d.size, height: 'auto', opacity: d.op,
-            mixBlendMode: 'screen', filter: 'blur(0.5px) saturate(1.2)',
-            maskImage: DISC_MASK, WebkitMaskImage: DISC_MASK,
-          }} />
-        </div>
-      ))}
-      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(140% 130% at 50% 34%, rgba(10,8,20,0) 0%, rgba(10,8,20,0.34) 64%, rgba(10,8,20,0.62) 100%)' }} />
-    </div>
-  );
-}
 function CapRow({ it }) {
   const [h, setH] = useState(false);
   return (

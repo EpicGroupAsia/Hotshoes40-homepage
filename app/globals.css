@@ -100,6 +100,21 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     radial-gradient(900px circle at 102% -4%, rgba(110,43,232,0.20), transparent 58%),
     radial-gradient(760px circle at -6% 104%, rgba(31,208,240,0.14), transparent 56%); } }
 
+/* ---- Client logo marquee ---- */
+.hs-logo-track-mask {
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+@media (hover: none) {
+  /* No hover state on touch devices, so the dimmed/grayscale resting state would
+     otherwise be permanent — brighten it and soften the edge fade for legibility. */
+  .hs-logo-track-mask {
+    mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+  }
+  .hs-logo-img { opacity: 0.92 !important; filter: grayscale(0.4) !important; }
+}
+
 .hs-contact-spot {
   position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
   background:
@@ -133,7 +148,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .hs-journey-pin, .hs-awards-pin { position: static !important; min-height: 0 !important; display: none !important; }
   .hs-journey-mobile, .hs-awards-mobile { display: block !important; }
 
-  .hs-hero-discs { width: 132vw !important; right: -30% !important; top: auto !important; bottom: -4% !important; height: 60% !important; align-items: flex-end !important; opacity: 0.5 !important; }
+  .hs-hero-discs { width: 132vw !important; right: -30% !important; top: 4% !important; bottom: auto !important; height: 52% !important; align-items: flex-start !important; opacity: 0.6 !important; }
 }
 @media (max-width: 460px) {
   .hs-value-dial { max-width: 280px !important; }

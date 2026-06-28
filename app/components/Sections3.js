@@ -179,7 +179,7 @@ function LogoMarquee({ items, dir, dur }) {
   const loop = [...items, ...items];
   const anim = dir === 'left' ? 'hs-marq-l' : 'hs-marq-r';
   return (
-    <div className="hs-logo-track-mask" style={{ maskImage: 'linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent)', WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent)' }}>
+    <div className="hs-logo-track-mask">
       <div className="hs-logo-track" style={{ display: 'inline-flex', alignItems: 'stretch', animation: prefersReduced() ? 'none' : `${anim} ${dur}s linear infinite` }}>
         {loop.map((cl, i) => <LogoTile key={i} cl={cl} />)}
       </div>
@@ -196,7 +196,7 @@ function LogoTile({ cl }) {
         display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 clamp(22px,2.6vw,38px)',
         borderRadius: 'var(--radius-panel)', background: h ? 'rgba(237,28,46,0.06)' : C.card,
         border: `1px solid ${h ? C.red : C.line}`, transition: 'background .35s, border-color .35s' }}>
-      <img src={cl.logo} alt={cl.name} loading="lazy"
+      <img src={cl.logo} alt={cl.name} loading="lazy" className="hs-logo-img"
         style={{ maxWidth: '88%', maxHeight: '62%', width: 'auto', height: 'auto', objectFit: 'contain',
           opacity: h ? 1 : 0.66, filter: h ? 'none' : 'grayscale(1)', transition: 'opacity .35s, filter .35s' }} />
     </div>
