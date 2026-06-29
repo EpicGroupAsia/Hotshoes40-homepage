@@ -83,6 +83,7 @@ export function Hero() {
         {/* Left fade: fully opaque past where text lives, smooth ramp into discs, then right-edge fade */}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(7,6,15,1) 0%, rgba(7,6,15,1) 30%, rgba(7,6,15,0.55) 46%, rgba(7,6,15,0.08) 62%, rgba(7,6,15,0.7) 88%, rgba(7,6,15,1) 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(7,6,15,0.7) 0%, rgba(7,6,15,0) 30%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(7,6,15,1) 0%, rgba(7,6,15,0) 22%)' }} />
       </div>
 
       <div style={{ position: 'relative', zIndex: 3, maxWidth: 1360, margin: '0 auto', width: '100%' }}>
