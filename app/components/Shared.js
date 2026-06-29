@@ -84,17 +84,38 @@ export function GlowBg({ tint = 'radial-gradient(120% 120% at 70% 20%, rgba(110,
 }
 
 /* Photographic background disc with scrim — used behind section copy. */
-export function ParallaxBg({ src, opacity = 1, scrim = 'left', align = 'center' }) {
+export function ParallaxBg({ src, opacity = 1, scrim = 'left', align = 'center', speed = 0.3 }) {
+  const imgRef = useRef(null);
   const scrims = {
     left: 'linear-gradient(90deg, rgba(7,6,15,0.97) 0%, rgba(7,6,15,0.72) 40%, rgba(7,6,15,0.18) 74%, rgba(7,6,15,0.5) 100%)',
     bottom: 'linear-gradient(0deg, rgba(7,6,15,0.97) 0%, rgba(7,6,15,0.55) 42%, rgba(7,6,15,0.12) 100%)',
     none: 'none',
   };
+  useEffect(() => {
+    if (prefersReduced()) return;
+    const scroller = document.getElementById('site-scroll');
+    const el = imgRef.current;
+    if (!scroller || !el) return;
+    let raf = 0;
+    const update = () => {
+      const rect = el.parentElement?.parentElement?.getBoundingClientRect();
+      if (!rect) return;
+      const vh = window.innerHeight;
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const offset = (progress - 0.5) * rect.height * speed;
+      el.style.transform = `scale(1.35) translateY(${offset.toFixed(1)}px)`;
+    };
+    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); };
+    update();
+    scroller.addEventListener('scroll', onScroll, { passive: true });
+    return () => { scroller.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
+  }, [speed]);
   return (
     <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-      <img src={src} alt="" style={{
+      <img ref={imgRef} src={src} alt="" style={{
         position: 'absolute', inset: 0, width: '100%', height: '100%',
         objectFit: 'cover', objectPosition: align, opacity, transform: 'scale(1.35)',
+        willChange: 'transform',
       }} />
       {scrim !== 'none' && <div style={{ position: 'absolute', inset: 0, background: scrims[scrim] }} />}
     </div>
