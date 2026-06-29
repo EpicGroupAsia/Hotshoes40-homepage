@@ -23,17 +23,19 @@ export function Hero() {
     const video = videoRef.current;
     if (!scroller || !el) return;
     let raf = 0;
-    const update = () => {
-      const scrollTop = scroller.scrollTop;
+    const scrub = (scrollTop) => {
       el.style.transform = `translate3d(0, ${(scrollTop * 0.34).toFixed(1)}px, 0)`;
       if (video && video.duration) {
         const heroHeight = document.getElementById('top')?.offsetHeight || window.innerHeight;
         video.currentTime = Math.max(0, Math.min(1, scrollTop / heroHeight)) * video.duration;
       }
     };
-    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); };
-    update();
+    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => scrub(scroller.scrollTop)); };
+    // Force load on mobile (iOS ignores preload="auto")
+    const ensureLoaded = () => { if (video && video.readyState < 1) video.load(); };
+    scrub(0);
     scroller.addEventListener('scroll', onScroll, { passive: true });
+    scroller.addEventListener('touchstart', ensureLoaded, { once: true, passive: true });
     return () => { scroller.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
   }, []);
 
@@ -69,7 +71,8 @@ export function Hero() {
           display: 'flex', alignItems: 'center', willChange: 'transform',
         }}>
           <video ref={videoRef} src="/assets/backgrounds/discs-motion.mp4"
-            muted playsInline preload="auto"
+            muted playsInline preload="auto" x-webkit-airplay="deny"
+            poster="/assets/backgrounds/circles-04.webp"
             style={{ width: '100%', maxWidth: 'none', filter: 'saturate(1.05)', display: 'block' }}
           />
         </div>
