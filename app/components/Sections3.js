@@ -294,6 +294,7 @@ export function Contact() {
   const types = enquiryTypes;
   const [sent, setSent] = useState(false);
   const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(false);
   const text = (label, name, req, ph) => ({ label, name, req, ph, kind: 'text' });
   const fields = [
     text('Full Name', 'name', true), text('Company', 'company', true),
@@ -304,11 +305,25 @@ export function Contact() {
     text('Criteria / Decision Making', 'criteria', false), text('Investment Allocated', 'investment', false),
     text('Required Response Time', 'response', false),
   ];
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     if (!fd.get('name') || !fd.get('email') || !fd.get('enquiry')) { setErr(true); return; }
-    setErr(false); setSent(true);
+    setErr(false);
+    setLoading(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(fd)),
+      });
+      if (!res.ok) throw new Error('send failed');
+      setSent(true);
+    } catch {
+      setErr(true);
+    } finally {
+      setLoading(false);
+    }
   };
   const labelStyle = { display: 'block', marginBottom: 8, fontFamily: F.mono, fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: C.muted };
   const inputStyle = { width: '100%', boxSizing: 'border-box', fontFamily: F.sans, fontSize: 15, color: C.ink, background: 'transparent', border: `1px solid ${C.line}`, borderRadius: 'var(--radius-input)', padding: '12px 14px', outline: 'none', transition: 'border-color .3s' };
@@ -354,7 +369,7 @@ export function Contact() {
               </div>
             </div>
             {err && <p style={{ margin: '18px 0 0', fontFamily: F.mono, fontSize: 12, color: C.redBright }}>Something went wrong. Please complete the required fields, or email us directly.</p>}
-            <button type="submit" className="hs-btn-primary" style={{ marginTop: 28, border: 0 }}>Send Enquiry</button>
+            <button type="submit" disabled={loading} className="hs-btn-primary" style={{ marginTop: 28, border: 0, opacity: loading ? 0.6 : 1 }}>{loading ? 'Sending…' : 'Send Enquiry'}</button>
           </form>
         )}
       </div>
