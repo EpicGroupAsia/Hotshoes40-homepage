@@ -148,7 +148,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .hs-journey-pin, .hs-awards-pin { position: static !important; min-height: 0 !important; display: none !important; }
   .hs-journey-mobile, .hs-awards-mobile { display: block !important; }
 
-  .hs-hero-discs { width: 132vw !important; right: -30% !important; top: 16% !important; bottom: auto !important; height: 48% !important; align-items: flex-start !important; opacity: 0.6 !important; }
+  .hs-hero-discs { width: 150vw !important; right: -20% !important; top: 5% !important; bottom: auto !important; height: 70% !important; align-items: center !important; opacity: 0.92 !important; }
 }
 @media (max-width: 460px) {
   .hs-value-dial { max-width: 280px !important; }
