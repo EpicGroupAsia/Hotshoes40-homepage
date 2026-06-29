@@ -10,6 +10,7 @@ export function Hero() {
   const [leaving, setLeaving] = useState(false);
   const pausedRef = useRef(false);
   const discsRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     setIdx(Math.floor(Math.random() * list.length));
@@ -19,9 +20,17 @@ export function Hero() {
     if (prefersReduced()) return;
     const scroller = document.getElementById('site-scroll');
     const el = discsRef.current;
+    const video = videoRef.current;
     if (!scroller || !el) return;
     let raf = 0;
-    const update = () => { el.style.transform = `translate3d(0, ${(scroller.scrollTop * 0.34).toFixed(1)}px, 0)`; };
+    const update = () => {
+      const scrollTop = scroller.scrollTop;
+      el.style.transform = `translate3d(0, ${(scrollTop * 0.34).toFixed(1)}px, 0)`;
+      if (video && video.duration) {
+        const heroHeight = document.getElementById('top')?.offsetHeight || window.innerHeight;
+        video.currentTime = Math.max(0, Math.min(1, scrollTop / heroHeight)) * video.duration;
+      }
+    };
     const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); };
     update();
     scroller.addEventListener('scroll', onScroll, { passive: true });
@@ -59,10 +68,10 @@ export function Hero() {
           position: 'absolute', right: '-6%', top: 0, height: '100%', width: 'min(64vw, 980px)',
           display: 'flex', alignItems: 'center', willChange: 'transform',
         }}>
-          <img src="/assets/backgrounds/circles-04.webp" alt="" style={{
-            width: '100%', maxWidth: 'none', filter: 'saturate(1.05)',
-            animation: prefersReduced() ? 'none' : 'hs-disc-float 16s ease-in-out infinite',
-          }} />
+          <video ref={videoRef} src="/assets/backgrounds/discs-motion.mp4"
+            muted playsInline preload="auto"
+            style={{ width: '100%', maxWidth: 'none', filter: 'saturate(1.05)', display: 'block' }}
+          />
         </div>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(7,6,15,0.98) 0%, rgba(7,6,15,0.82) 36%, rgba(7,6,15,0.25) 66%, rgba(7,6,15,0.55) 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(7,6,15,0.7) 0%, rgba(7,6,15,0) 30%)' }} />
