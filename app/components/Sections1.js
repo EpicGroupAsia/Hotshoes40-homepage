@@ -71,13 +71,13 @@ export function Hero() {
     <section id="top" data-screen-label="Hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', padding: '140px clamp(24px,6vw,96px) 80px', background: 'radial-gradient(120% 110% at 80% 30%, #100c2c 0%, var(--hs-void) 58%)' }}>
       <div aria-hidden="true" style={{ position: 'absolute', inset: 0, zIndex: 1, overflow: 'hidden' }}>
         <div ref={discsRef} className="hs-hero-discs" style={{
-          position: 'absolute', right: '-6%', top: 0, height: '100%', width: 'min(64vw, 980px)',
-          willChange: 'transform', overflow: 'hidden',
+          position: 'absolute', right: '-6%', top: '-15%', height: '130%', width: 'min(64vw, 980px)',
+          display: 'flex', alignItems: 'center', willChange: 'transform',
         }}>
           <video ref={videoRef} src="/assets/backgrounds/discs-motion.mp4"
             muted playsInline preload="auto" x-webkit-airplay="deny"
             poster="/assets/backgrounds/circles-04.webp"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center', filter: 'saturate(1.05)', display: 'block' }}
+            style={{ width: '100%', height: 'auto', filter: 'saturate(1.05)', display: 'block' }}
           />
         </div>
         {/* Left fade: fully opaque past where text lives, smooth ramp into discs, then right-edge fade */}
