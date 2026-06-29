@@ -72,18 +72,18 @@ export function Hero() {
       <div aria-hidden="true" style={{ position: 'absolute', inset: 0, zIndex: 1, overflow: 'hidden' }}>
         <div ref={discsRef} className="hs-hero-discs" style={{
           position: 'absolute', right: '-6%', top: 0, height: '100%', width: 'min(64vw, 980px)',
-          display: 'flex', alignItems: 'center', willChange: 'transform',
+          willChange: 'transform', overflow: 'hidden',
         }}>
           <video ref={videoRef} src="/assets/backgrounds/discs-motion.mp4"
             muted playsInline preload="auto" x-webkit-airplay="deny"
             poster="/assets/backgrounds/circles-04.webp"
-            style={{ width: '100%', maxWidth: 'none', filter: 'saturate(1.05)', display: 'block' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'saturate(1.05)', display: 'block' }}
           />
         </div>
         {/* Left fade: fully opaque past where text lives, smooth ramp into discs, then right-edge fade */}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(7,6,15,1) 0%, rgba(7,6,15,1) 30%, rgba(7,6,15,0.55) 46%, rgba(7,6,15,0.08) 62%, rgba(7,6,15,0.7) 88%, rgba(7,6,15,1) 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(7,6,15,0.7) 0%, rgba(7,6,15,0) 30%)' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(7,6,15,1) 0%, rgba(7,6,15,0) 22%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(7,6,15,1) 0%, rgba(7,6,15,0.85) 18%, rgba(7,6,15,0) 40%)' }} />
       </div>
 
       <div style={{ position: 'relative', zIndex: 3, maxWidth: 1360, margin: '0 auto', width: '100%' }}>
