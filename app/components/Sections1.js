@@ -170,6 +170,9 @@ export function SelectedCases() {
       <Reveal delay={0.1} style={{ marginTop: 26 }}>
         <Lead>Our work brings together strategy, creativity, production, operations and digital thinking to create experiences that people can see, feel and act on.</Lead>
       </Reveal>
+      <Reveal delay={0.14} style={{ marginTop: 32 }}>
+        <a href="#contact" className="hs-btn-secondary">Start a Project Like This</a>
+      </Reveal>
 
       <Reveal delay={0.12} style={{ marginTop: 64 }}>
         <div className="hs-carousel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}

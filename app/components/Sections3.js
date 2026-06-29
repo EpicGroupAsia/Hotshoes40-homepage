@@ -250,6 +250,9 @@ export function BeyondEvent() {
         <Reveal delay={0.1} style={{ marginTop: 24 }}>
           <Lead>We help brands extend their impact through content, social engagement, influencer amplification, performance marketing, digital platforms and Web3-enabled experiences where relevant.</Lead>
         </Reveal>
+        <Reveal delay={0.14} style={{ marginTop: 32 }}>
+          <a href="#contact" className="hs-btn-secondary">Amplify Your Next Campaign</a>
+        </Reveal>
         <div className="hs-beyond-grid" style={{ marginTop: 56, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }}>
           {points.map((p, i) => (
             <Reveal key={p} delay={(i % 3) * 0.06}>
