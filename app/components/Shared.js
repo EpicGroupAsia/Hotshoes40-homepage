@@ -112,7 +112,7 @@ export function ParallaxBg({ src, opacity = 1, scrim = 'left', align = 'center',
   }, [speed]);
   return (
     <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-      <img ref={imgRef} src={src} alt="" style={{
+      <img ref={imgRef} src={src} alt="" className="hs-parallax-img" style={{
         position: 'absolute', inset: 0, width: '100%', height: '100%',
         objectFit: 'cover', objectPosition: align, opacity, transform: 'scale(1.35)',
         willChange: 'transform',
