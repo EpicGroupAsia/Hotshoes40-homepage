@@ -133,7 +133,7 @@ export function FortyYearsValue() {
         <Lead>We are not celebrating 40 years to look back. We are using it to move forward — with the experience, network and creative discipline to help brands activate faster, smarter and stronger.</Lead>
       </Reveal>
       <Reveal delay={0.14} style={{ marginTop: 32 }}>
-        <a href="#contact" className="hs-btn-secondary">Put 40 Years to Work for You</a>
+        <a href="#contact" className="hs-btn-primary">Put 40 Years to Work for You</a>
       </Reveal>
 
       <div className="hs-value-grid" style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: 'clamp(32px,4vw,56px)', alignItems: 'center' }}>
@@ -209,7 +209,7 @@ export function Capabilities() {
             <Lead>Hotshoes brings together strategy, creativity, activation, technology and production to create brand experiences that work across every stage of the customer journey.</Lead>
           </Reveal>
           <Reveal delay={0.14} style={{ marginTop: 32 }}>
-            <a href="#contact" className="hs-btn-secondary">Discuss Your Brand Activation</a>
+            <a href="#contact" className="hs-btn-primary">Discuss Your Brand Activation</a>
           </Reveal>
           <div style={{ marginTop: 56 }}>
             {items.map((it) => <CapRow key={it.n} it={it} />)}
@@ -248,7 +248,7 @@ export function Delivery() {
         <Lead>Our work is powered by multidisciplinary teams, trusted partners, certified systems and the operational experience needed to bring complex brand experiences to life.</Lead>
       </Reveal>
       <Reveal delay={0.14} style={{ marginTop: 32 }}>
-        <a href="#contact" className="hs-btn-secondary">Plan Your Campaign With Us</a>
+        <a href="#contact" className="hs-btn-primary">Plan Your Campaign With Us</a>
       </Reveal>
       <div className="hs-deliver-grid" style={{ marginTop: 60, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 24 }}>
         {pillars.map((p, i) => (
@@ -285,7 +285,7 @@ export function Certifications() {
         <Lead>Behind the creativity is a delivery standard built for accountability, safety, quality and trust — giving clients confidence from planning to production.</Lead>
       </Reveal>
       <Reveal delay={0.14} style={{ marginTop: 32 }}>
-        <a href="#contact" className="hs-btn-secondary">Work With a Certified Partner</a>
+        <a href="#contact" className="hs-btn-primary">Work With a Certified Partner</a>
       </Reveal>
 
       <Reveal delay={0.12} style={{ marginTop: 56 }}>

@@ -171,7 +171,7 @@ export function SelectedCases() {
         <Lead>Our work brings together strategy, creativity, production, operations and digital thinking to create experiences that people can see, feel and act on.</Lead>
       </Reveal>
       <Reveal delay={0.14} style={{ marginTop: 32 }}>
-        <a href="#contact" className="hs-btn-secondary">Start a Project Like This</a>
+        <a href="#contact" className="hs-btn-primary">Start a Project Like This</a>
       </Reveal>
 
       <Reveal delay={0.12} style={{ marginTop: 64 }}>
