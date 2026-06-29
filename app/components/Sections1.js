@@ -31,11 +31,15 @@ export function Hero() {
       }
     };
     const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => scrub(scroller.scrollTop)); };
-    // Force load on mobile (iOS ignores preload="auto")
-    const ensureLoaded = () => { if (video && video.readyState < 1) video.load(); };
+    // iOS ignores preload="auto" — force load via play/pause trick
+    const ensureLoaded = () => {
+      if (!video) return;
+      const p = video.play();
+      if (p) p.catch(() => {}).then(() => { video.pause(); video.currentTime = 0; });
+    };
     scrub(0);
     scroller.addEventListener('scroll', onScroll, { passive: true });
-    scroller.addEventListener('touchstart', ensureLoaded, { once: true, passive: true });
+    document.addEventListener('touchstart', ensureLoaded, { once: true, passive: true });
     return () => { scroller.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
   }, []);
 
@@ -69,6 +73,8 @@ export function Hero() {
         <div ref={discsRef} className="hs-hero-discs" style={{
           position: 'absolute', right: '-6%', top: 0, height: '100%', width: 'min(64vw, 980px)',
           display: 'flex', alignItems: 'center', willChange: 'transform',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 72%, transparent 100%)',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 72%, transparent 100%)',
         }}>
           <video ref={videoRef} src="/assets/backgrounds/discs-motion.mp4"
             muted playsInline preload="auto" x-webkit-airplay="deny"
