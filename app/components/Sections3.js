@@ -276,7 +276,7 @@ export function FinalCTA() {
         <Reveal><Eyebrow tone="red">Ready for what&rsquo;s next?</Eyebrow></Reveal>
         <Reveal delay={0.06} style={{ marginTop: 30 }}>
           <h2 style={{ margin: 0, fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(44px,9vw,118px)', lineHeight: 0.92, letterSpacing: '-0.035em', textTransform: 'uppercase', color: C.ink, textWrap: 'balance' }}>
-            40 years behind us.<br />The next big idea<br /><span style={{ color: C.red }}>starts now.</span>
+            40 years of impact.<br />The next big idea<br /><span style={{ color: C.red }}>starts now.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.12} style={{ marginTop: 30 }}>

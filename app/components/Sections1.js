@@ -71,7 +71,7 @@ export function Hero() {
       <div style={{ position: 'relative', zIndex: 3, maxWidth: 1360, margin: '0 auto', width: '100%' }}>
         <Reveal>
           <p style={{ margin: 0, fontFamily: F.mono, fontSize: 13, letterSpacing: '0.34em', textTransform: 'uppercase', color: C.cyan }}>
-            HOTSHOES <span style={{ color: C.dim }}>·</span> 1986 — 2026
+            HOTSHOES <span style={{ color: C.dim }}>·</span> Since 1986
           </p>
         </Reveal>
 
