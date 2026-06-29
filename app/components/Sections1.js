@@ -77,7 +77,7 @@ export function Hero() {
           <video ref={videoRef} src="/assets/backgrounds/discs-motion.mp4"
             muted playsInline preload="auto" x-webkit-airplay="deny"
             poster="/assets/backgrounds/circles-04.webp"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'saturate(1.05)', display: 'block' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center', filter: 'saturate(1.05)', display: 'block' }}
           />
         </div>
         {/* Left fade: fully opaque past where text lives, smooth ramp into discs, then right-edge fade */}
