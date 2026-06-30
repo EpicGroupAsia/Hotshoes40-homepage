@@ -24,6 +24,7 @@ export const metadata = {
     description: SITE_DESCRIPTION,
   },
   robots: { index: true, follow: true },
+  verification: { google: "2h6WdvvOK2uXzANTLYxrPk0ztJQibUxMaWVMj_aa2lU" },
 };
 
 export const viewport = {
