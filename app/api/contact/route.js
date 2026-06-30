@@ -1,5 +1,6 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
+const resend = new Resend(process.env.RESEND_API_KEY);
 const REQUIRED = ["name", "email", "enquiry"];
 
 export async function POST(request) {
@@ -11,16 +12,6 @@ export async function POST(request) {
         return Response.json({ error: `Missing required field: ${field}` }, { status: 400 });
       }
     }
-
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
 
     const lines = [
       ["Full Name", body.name],
@@ -38,16 +29,23 @@ export async function POST(request) {
       ["Message", body.message],
     ]
       .filter(([, v]) => v?.trim())
-      .map(([k, v]) => `${k}: ${v}`)
-      .join("\n");
+      .map(([k, v]) => `<tr><td style="padding:6px 16px 6px 0;color:#888;white-space:nowrap;vertical-align:top">${k}</td><td style="padding:6px 0;color:#fff">${v}</td></tr>`)
+      .join("");
 
-    await transporter.sendMail({
-      from: `"Hotshoes Asia Website" <${process.env.SMTP_USER}>`,
+    await resend.emails.send({
+      from: "Hotshoes Asia Website <onboarding@resend.dev>",
       to: "hello@hotshoes.asia",
+      reply_to: body.email,
       subject: `New Enquiry — ${body.enquiry} from ${body.name}`,
-      text: `New contact form submission\n\n${lines}`,
-      html: `<pre style="font-family:sans-serif;font-size:14px;line-height:1.7">${lines.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</pre>`,
-      replyTo: body.email,
+      html: `
+        <div style="background:#07060F;padding:40px;font-family:sans-serif;max-width:600px">
+          <p style="margin:0 0 24px;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#1FD0F0">Hotshoes Asia — New Enquiry</p>
+          <table style="width:100%;border-collapse:collapse;font-size:15px">
+            ${lines}
+          </table>
+          <p style="margin:32px 0 0;font-size:12px;color:#555">Sent from uat.hotshoes.com.my contact form</p>
+        </div>
+      `,
     });
 
     return Response.json({ ok: true });
