@@ -7,4 +7,4 @@ export const SITE_URL =
 export const SITE_NAME = "Hotshoes Asia";
 
 export const SITE_DESCRIPTION =
-  "Hotshoes Asia — a bold creative brand activation and events agency. 40 years of turning business objectives into brand experiences that move people, across Asia.";
+  "Take advantage of 40 years of brand activation expertise. Click here to engage with us — free consultation available, by appointment.";
