@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "./site-config";
 
 export const metadata = {
@@ -52,6 +53,13 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DKVCPBW2R9" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-DKVCPBW2R9');
+        `}</Script>
         {children}
       </body>
     </html>
