@@ -33,7 +33,7 @@ export async function POST(request) {
       .join("");
 
     await resend.emails.send({
-      from: "Hotshoes Asia Website <onboarding@resend.dev>",
+      from: `Hotshoes Asia Website <${process.env.FROM_EMAIL || "noreply@hotshoes.asia"}>`,
       to: "hello@hotshoes.asia",
       reply_to: body.email,
       subject: `New Enquiry — ${body.enquiry} from ${body.name}`,
