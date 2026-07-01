@@ -61,6 +61,44 @@ export default function CaseStudyView({ caseId }) {
 
       <div style={{ height: 3, background: 'linear-gradient(90deg, #1FD0F0, #2E5BFF, #6E2BE8, #C026D3, #ED1C2E)' }} />
 
+      {/* YouTube video + photos media section */}
+      {(cs.youtubeId || (cs.photos && cs.photos.length > 0)) && (
+        <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,7vw,80px) clamp(24px,6vw,96px) 0' }}>
+          {cs.youtubeId && (
+            <div style={{ marginBottom: cs.photos?.length ? 32 : 0 }}>
+              <p style={{ margin: '0 0 18px', fontFamily: F.mono, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.cyan, display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ width: 7, height: 7, background: C.red, display: 'inline-block' }} />
+                Campaign Video
+              </p>
+              <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', borderRadius: 'var(--radius-panel)', overflow: 'hidden', background: '#000', border: `1px solid ${C.line}` }}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${cs.youtubeId}?rel=0&modestbranding=1`}
+                  title={`${cs.title} — Campaign Video`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+                />
+              </div>
+            </div>
+          )}
+          {cs.photos && cs.photos.length > 0 && (
+            <div>
+              <p style={{ margin: '0 0 18px', fontFamily: F.mono, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.cyan, display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ width: 7, height: 7, background: C.red, display: 'inline-block' }} />
+                Campaign Gallery
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: 16 }}>
+                {cs.photos.map((src, i) => (
+                  <div key={i} style={{ aspectRatio: '4 / 3', borderRadius: 12, overflow: 'hidden', border: `1px solid ${C.line}`, background: '#000' }}>
+                    <img src={src} alt={`${cs.title} — photo ${i + 1}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
       <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(64px,9vw,120px) clamp(24px,6vw,96px)' }}>
         <div style={{ display: 'grid', gap: 'clamp(40px,5vw,72px)' }}>
           {details.map((d) => (
@@ -77,7 +115,7 @@ export default function CaseStudyView({ caseId }) {
         <div style={{ marginTop: 'clamp(56px,7vw,88px)', display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
           <Link href="/#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: F.mono, fontSize: 13, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', color: '#fff', background: C.red, padding: '16px 30px', borderRadius: 'var(--radius-button)' }}
             onMouseEnter={(e) => (e.currentTarget.style.background = C.redBright)} onMouseLeave={(e) => (e.currentTarget.style.background = C.red)}>Start a project like this →</Link>
-          <Link href="/#work" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: F.mono, fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', color: C.ink, padding: '16px 28px', borderRadius: 'var(--radius-button)', border: `1px solid ${C.line}` }}
+          <Link href="/work" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: F.mono, fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', color: C.ink, padding: '16px 28px', borderRadius: 'var(--radius-button)', border: `1px solid ${C.line}` }}
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = C.ink)} onMouseLeave={(e) => (e.currentTarget.style.borderColor = C.line)}>All case studies</Link>
         </div>
       </section>

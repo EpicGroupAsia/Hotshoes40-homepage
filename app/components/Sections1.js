@@ -188,8 +188,10 @@ export function SelectedCases() {
       <Reveal delay={0.1} style={{ marginTop: 26 }}>
         <Lead>Our work brings together strategy, creativity, production, operations and digital thinking to create experiences that people can see, feel and act on.</Lead>
       </Reveal>
-      <Reveal delay={0.14} style={{ marginTop: 32 }}>
+      <Reveal delay={0.14} style={{ marginTop: 32, display: 'flex', flexWrap: 'wrap', gap: 14, alignItems: 'center' }}>
         <a href="#contact" className="hs-btn-primary">Start a Project Like This</a>
+        <Link href="/work" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: F.mono, fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', color: C.ink, padding: '16px 28px', borderRadius: 'var(--radius-button)', border: `1px solid ${C.line}`, transition: 'border-color .3s' }}
+          onMouseEnter={(e) => (e.currentTarget.style.borderColor = C.ink)} onMouseLeave={(e) => (e.currentTarget.style.borderColor = C.line)}>All Case Studies →</Link>
       </Reveal>
 
       <Reveal delay={0.12} style={{ marginTop: 64 }}>

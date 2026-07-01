@@ -96,20 +96,31 @@ export const objectives = [
     cta: 'Plan an event' },
 ];
 
+export const caseCategories = [
+  'Brand Activation',
+  'Corporate Event',
+  'Integrated Marketing',
+  'Digital Marketing',
+  'Creative and Content',
+  'Technology and Data',
+  'M.I.C.E.',
+];
+
 export const cases = [
-  { n: '01', client: 'Watsons', title: 'Watsons Get Active Fest', category: 'Consumer Engagement / Brand Activation', photo: '/assets/cases/watsons-get-active.webp',
+  { n: '01', client: 'Watsons', title: 'Watsons Get Active Fest', category: 'Brand Activation', photo: '/assets/cases/watsons-get-active.webp',
     challenge: 'Create a high-energy consumer experience that could bring people together around movement, wellness and brand participation.',
     experience: 'Hotshoes developed and delivered a large-scale sports-led activation experience designed to drive participation, interaction and brand love.',
     impact: 'A memorable on-ground platform that brought the brand closer to consumers through shared energy, activity and experience.' },
-  { n: '02', client: 'Hotlink', title: 'Hotlink Uni Legend Tournament', category: 'Youth Engagement / Gaming Activation', photo: '/assets/cases/hotlink-uni-legend.webp',
+  { n: '02', client: 'Hotlink', title: 'Hotlink Uni Legend Tournament', category: 'Brand Activation', photo: '/assets/cases/hotlink-uni-legend.webp',
     challenge: 'Connect with youth audiences through a platform that felt relevant, competitive and community-driven.',
     experience: 'Hotshoes shaped a tournament experience that combined gaming culture, campus energy, digital engagement and live activation.',
     impact: 'A youth-focused engagement platform built to generate attention, participation and brand affinity.' },
-  { n: '03', client: '7-Eleven', title: '7-Eleven RamRaya Roadshow', category: 'Consumer Roadshow / Festive Campaign', photo: '/assets/cases/ramraya-7eleven.webp',
+  { n: '03', client: '7-Eleven', title: '7-Eleven RamRaya Roadshow', category: 'Integrated Marketing', photo: '/assets/cases/ramraya-7eleven.webp',
     challenge: 'Create a festive on-ground experience that could connect with consumers in a meaningful and culturally relevant way.',
     experience: 'Hotshoes brought the 7-Eleven RamRaya campaign to life through a mobile roadshow journey designed around interaction, participation and festive brand storytelling.',
-    impact: 'A consumer-facing activation that helped 7-Eleven show up with relevance during a key seasonal moment.' },
-  { n: '04', client: 'AFC', title: 'AFC Trusted Event Partner', category: 'Events / Partnership Delivery', photo: '/assets/cases/afc-congress.webp',
+    impact: 'A consumer-facing activation that helped 7-Eleven show up with relevance during a key seasonal moment.',
+    youtubeId: '' },
+  { n: '04', client: 'AFC', title: 'AFC Trusted Event Partner', category: 'M.I.C.E.', photo: '/assets/cases/afc-congress.webp',
     challenge: 'Support a trusted regional partner with event delivery that required precision, reliability and strong operational control.',
     experience: 'Hotshoes provided event expertise across planning, coordination, production and on-ground execution for the AFC Congress.',
     impact: 'A dependable event partnership built on trust, consistency and delivery confidence.' },
