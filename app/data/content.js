@@ -119,7 +119,7 @@ export const cases = [
     challenge: 'Create a festive on-ground experience that could connect with consumers in a meaningful and culturally relevant way.',
     experience: 'Hotshoes brought the 7-Eleven RamRaya campaign to life through a mobile roadshow journey designed around interaction, participation and festive brand storytelling.',
     impact: 'A consumer-facing activation that helped 7-Eleven show up with relevance during a key seasonal moment.',
-    youtubeId: '' },
+    youtubeId: 'MYua2cFZDcU' },
   { n: '04', client: 'AFC', title: 'AFC Trusted Event Partner', category: 'M.I.C.E.', photo: '/assets/cases/afc-congress.webp',
     challenge: 'Support a trusted regional partner with event delivery that required precision, reliability and strong operational control.',
     experience: 'Hotshoes provided event expertise across planning, coordination, production and on-ground execution for the AFC Congress.',
