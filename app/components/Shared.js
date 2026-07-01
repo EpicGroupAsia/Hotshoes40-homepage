@@ -278,7 +278,7 @@ export function SiteFooter() {
             </p>
             <p style={{ margin: '18px 0 0', fontFamily: F.mono, fontSize: 13, letterSpacing: '0.04em', lineHeight: 1.9, color: C.muted }}>
               <a href="tel:+60378038898" style={{ color: C.ink, textDecoration: 'none' }}>+603 7803 8898</a><br />
-              <a href="mailto:enquiry@hotshoes.asia" style={{ color: 'rgba(244,243,248,0.82)', textDecoration: 'none' }}>enquiry@hotshoes.asia</a>
+              <a href="mailto:hello@hotshoes.asia" style={{ color: 'rgba(244,243,248,0.82)', textDecoration: 'none' }}>hello@hotshoes.asia</a>
             </p>
           </div>
         </div>
@@ -322,7 +322,7 @@ function PrivacyModal({ onClose }) {
         {H('Data Protection')}
         {P('We apply appropriate organisational and technical measures, consistent with our ISO 9001 and OHSAS 18001 / ISO 45001 management systems, to keep personal data secure and retained only for as long as necessary.')}
         {H('Your Rights')}
-        {P('Under the PDPA you may request access to, correction of, or withdrawal of consent for the processing of your personal data. To exercise these rights, contact us at enquiry@hotshoes.asia or +603 7803 8898.')}
+        {P('Under the PDPA you may request access to, correction of, or withdrawal of consent for the processing of your personal data. To exercise these rights, contact us at hello@hotshoes.asia or +603 7803 8898.')}
         {H('Contact')}
         {P('The Hot Shoe Show & Co Sdn Bhd — Wisma EPIC, Jalan SS 25/22, Taman Mayang, 47301 Petaling Jaya, Selangor, Malaysia.')}
         <p style={{ margin: '20px 0 0', fontFamily: F.mono, fontSize: 11, letterSpacing: '0.08em', color: C.dim }}>By continuing to use this site and our services, you consent to the collection and use of your personal data as described above.</p>
