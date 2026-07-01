@@ -45,7 +45,7 @@ export default function WorkView() {
           Our Work
         </p>
         <h1 style={{ margin: 0, fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(48px,7vw,104px)', lineHeight: 0.92, letterSpacing: '-0.03em', textTransform: 'uppercase', textWrap: 'balance' }}>
-          All Case<br />Studies
+          Every Project.<br />Every Story.
         </h1>
         <p style={{ margin: '28px 0 0', maxWidth: 560, fontFamily: F.sans, fontSize: 'clamp(16px,1.4vw,19px)', lineHeight: 1.6, color: C.muted }}>
           40 years of turning business objectives into brand experiences. Filter by discipline to explore the work.
