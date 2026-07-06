@@ -223,6 +223,7 @@ export const clientsRowA = [
   { name: 'Accenture', logo: '/assets/clients/accenture-white.png' },
   { name: 'Toyota', logo: '/assets/clients/toyota-white.png' },
   { name: 'Changan', logo: '/assets/clients/changan-white.png' },
+  { name: 'BitHarvest', logo: '/assets/clients/bitharvest-white.png' },
 ];
 export const clientsRowB = [
   { name: 'Eco-Shop', logo: '/assets/clients/ecoshop-white.png' },
@@ -242,6 +243,8 @@ export const clientsRowB = [
   { name: 'MotoGP', logo: '/assets/clients/motogp-white.png' },
   { name: 'Proton', logo: '/assets/clients/proton-white.png' },
   { name: 'Mercedes-Benz', logo: '/assets/clients/mercedes-white.png' },
+  { name: 'AICB', logo: '/assets/clients/aicb-white.png' },
+  { name: 'Penang', logo: '/assets/clients/penang-white.png' },
 ];
 
 export const workWith = [
