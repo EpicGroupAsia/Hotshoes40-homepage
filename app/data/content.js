@@ -245,6 +245,7 @@ export const clientsRowB = [
   { name: 'Mercedes-Benz', logo: '/assets/clients/mercedes-white.png' },
   { name: 'AICB', logo: '/assets/clients/aicb-white.png' },
   { name: 'Penang', logo: '/assets/clients/penang-white.png' },
+  { name: 'Penang Global Tourism', logo: '/assets/clients/pgt-white.png' },
 ];
 
 export const workWith = [
