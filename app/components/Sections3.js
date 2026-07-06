@@ -160,8 +160,8 @@ export function TrustClients() {
       <div className="hs-logo-wall" style={{ marginTop: 64, position: 'relative', display: 'grid', gap: 22, padding: '40px 0', borderTop: `1px solid ${C.line}`, borderBottom: `1px solid ${C.line}`, overflow: 'hidden' }}>
         <span aria-hidden="true" style={{ position: 'absolute', left: 0, right: 0, top: -1, height: 2, background: 'linear-gradient(90deg, #1FD0F0, #2E5BFF, #6E2BE8, #C026D3, #ED1C2E)', opacity: 0.7 }} />
         <span aria-hidden="true" style={{ position: 'absolute', left: 0, right: 0, bottom: -1, height: 2, background: 'linear-gradient(90deg, #ED1C2E, #C026D3, #6E2BE8, #2E5BFF, #1FD0F0)', opacity: 0.7 }} />
-        <LogoMarquee items={clientsRowA} dir="left" dur={42} />
-        <LogoMarquee items={clientsRowB} dir="right" dur={52} />
+        <LogoMarquee items={clientsRowA} dir="left" dur={28} />
+        <LogoMarquee items={clientsRowB} dir="right" dur={34} />
       </div>
 
       <div style={{ padding: '0 clamp(24px,6vw,96px)' }}>
