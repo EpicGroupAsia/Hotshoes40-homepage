@@ -304,7 +304,7 @@ export function Certifications() {
         </div>
       </Reveal>
 
-      <div className="hs-cert-grid" style={{ marginTop: 24, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24 }}>
+      <div className="hs-cert-grid" style={{ marginTop: 24, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 24 }}>
         {certs.map((ct, i) => (
           <Reveal key={ct.code} delay={i * 0.08}>
             <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: 'clamp(28px,2.8vw,40px)', borderRadius: 'var(--radius-panel)', background: C.card, border: `1px solid ${C.line}` }}>
