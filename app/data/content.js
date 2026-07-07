@@ -187,10 +187,14 @@ export const certifications = [
     copy: 'A recognised standard that supports consistent processes, quality control and continuous improvement.' },
   { code: 'ISO 45001', title: 'Occupational Health & Safety', logo: '/assets/certs/iso-45001-white.png',
     copy: 'A recognised occupational health and safety management standard that reflects our commitment to responsible working environments, safer operations and operational care.' },
-  { code: 'MACEOS', title: 'Industry Association Member', logo: '/assets/certs/maceos-white.png',
-    copy: 'A member of the Malaysian Association of Convention & Exhibition Organisers & Suppliers, connecting us to the standards, network and best practices of the events industry.' },
   { code: 'MOF', title: 'Ministry of Finance — Registered Supplier',
     copy: 'Registered with the Ministry of Finance, supporting government and corporate engagement with the required registration and compliance framework.' },
+  { code: 'MACEOS', title: 'Industry Association Member', logo: '/assets/certs/maceos-white.png',
+    copy: 'A member of the Malaysian Association of Convention & Exhibition Organisers & Suppliers, connecting us to the standards, network and best practices of the events industry.' },
+  { code: 'AFECA', title: 'Corporate Member', logo: '/assets/certs/afeca-white.png',
+    copy: 'A corporate member of the Asian Federation of Exhibition & Convention Associations, strengthening our connection to regional industry standards and cross-border collaboration.' },
+  { code: 'MRCA', title: 'Associate Member', logo: '/assets/certs/mrca-white.png',
+    copy: 'An associate member of the Malaysia Retail Chain Association, supporting our work with retail brands through industry knowledge, networks and best practices.' },
 ];
 
 export const awards = [

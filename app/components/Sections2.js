@@ -304,13 +304,13 @@ export function Certifications() {
         </div>
       </Reveal>
 
-      <div className="hs-cert-grid" style={{ marginTop: 24, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24 }}>
+      <div className="hs-cert-grid" style={{ marginTop: 24, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 24 }}>
         {certs.map((ct, i) => (
           <Reveal key={ct.code} delay={i * 0.08}>
             <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: 'clamp(28px,2.8vw,40px)', borderRadius: 'var(--radius-panel)', background: C.card, border: `1px solid ${C.line}` }}>
-              <div className="hs-cert-logobox" style={{ height: 124, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div className="hs-cert-logobox" style={{ height: 148, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {ct.logo ? (
-                  <img className="hs-cert-logo" src={ct.logo} alt={`${ct.code} — ${ct.title}`} style={{ maxHeight: 116, maxWidth: '100%', width: 'auto', objectFit: 'contain' }} />
+                  <img className="hs-cert-logo" src={ct.logo} alt={`${ct.code} — ${ct.title}`} style={{ maxHeight: ct.code === 'ISO 9001' ? 148 : 116, maxWidth: '100%', width: 'auto', objectFit: 'contain' }} />
                 ) : (
                   <span style={{ fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(40px,3.4vw,56px)', lineHeight: 0.9, letterSpacing: '-0.03em', color: C.ink }}>{ct.code}</span>
                 )}
