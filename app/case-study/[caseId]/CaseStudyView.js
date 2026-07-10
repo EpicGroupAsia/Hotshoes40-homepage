@@ -23,6 +23,20 @@ const MetricIcon = ({ type }) => {
   return null;
 };
 
+const DetailIcon = ({ type }) => {
+  const s = { width: 28, height: 28, stroke: 'currentColor', strokeWidth: 1.5, fill: 'none' };
+  if (type === 'challenge') return (
+    <svg viewBox="0 0 24 24" style={s}><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+  );
+  if (type === 'experience') return (
+    <svg viewBox="0 0 24 24" style={s}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+  );
+  if (type === 'impact') return (
+    <svg viewBox="0 0 24 24" style={s}><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+  );
+  return null;
+};
+
 function PhotoCarousel({ photos, title }) {
   const trackRef = useRef(null);
   const [canPrev, setCanPrev] = useState(false);
@@ -68,14 +82,14 @@ function PhotoCarousel({ photos, title }) {
           <button onClick={() => scroll(1)} style={btnStyle(canNext)} aria-label="Next photos">→</button>
         </div>
       </div>
-      <div ref={trackRef} style={{
+      <div ref={trackRef} className="cs-carousel-track" style={{
         display: 'flex', gap: 20, overflowX: 'auto', scrollSnapType: 'x mandatory',
         paddingLeft: 'clamp(24px,6vw,96px)', paddingRight: 'clamp(24px,6vw,96px)', paddingBottom: 8,
         scrollbarWidth: 'none', msOverflowStyle: 'none',
       }}>
         <style>{`.cs-carousel-track::-webkit-scrollbar{display:none}`}</style>
         {photos.map((src, i) => (
-          <div key={i} className="cs-carousel-track" style={{
+          <div key={i} style={{
             flex: '0 0 auto', width: 'clamp(280px, 38vw, 480px)', aspectRatio: '4 / 3',
             borderRadius: 16, overflow: 'hidden', scrollSnapAlign: 'start',
             border: `1px solid ${C.line}`, background: '#000',
@@ -108,15 +122,25 @@ export default function CaseStudyView({ caseId }) {
   }, [idx, next, prev, router]);
 
   const details = [
-    { n: "01", label: "The Challenge", body: cs.challenge },
-    { n: "02", label: "The Experience", body: cs.experience },
-    { n: "03", label: "The Impact", body: cs.impact, accent: true },
+    { n: "01", label: "The Challenge", body: cs.challenge, icon: 'challenge' },
+    { n: "02", label: "The Experience", body: cs.experience, icon: 'experience' },
+    { n: "03", label: "The Impact", body: cs.impact, accent: true, icon: 'impact' },
   ];
 
   const hasHeroVideo = cs.heroVideo && cs.youtubeId;
 
   return (
     <div>
+      {/* Responsive styles for mobile */}
+      <style>{`
+        @media(max-width:768px){
+          .cs-hero-video-wrap{aspect-ratio:4/5 !important;min-height:0 !important}
+          .cs-hero-video-wrap iframe{width:300% !important;height:300% !important}
+          .cs-metrics-grid{grid-template-columns:1fr !important;gap:16px !important}
+          .cs-detail-row{grid-template-columns:1fr !important}
+        }
+      `}</style>
+
       <header style={{ position: 'sticky', top: 0, zIndex: 30, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '20px clamp(20px,5vw,56px)', background: 'rgba(7,6,15,0.78)', backdropFilter: 'blur(14px)', borderBottom: `1px solid ${C.line}` }}>
         <Link href="/" aria-label="Hotshoes Asia home"><img src="/assets/logo-white.png" alt="Hotshoes Asia" style={{ height: 24, width: 'auto', display: 'block' }} /></Link>
@@ -127,7 +151,8 @@ export default function CaseStudyView({ caseId }) {
       </header>
 
       {/* Hero — video background or static image */}
-      <section className="cs-rise" key={`hero-${cs.n}`} style={{ position: 'relative', minHeight: hasHeroVideo ? 'min(88vh, 820px)' : 'min(78vh, 720px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
+      <section className={hasHeroVideo ? 'cs-rise cs-hero-video-wrap' : 'cs-rise'} key={`hero-${cs.n}`}
+        style={{ position: 'relative', minHeight: hasHeroVideo ? 'min(88vh, 820px)' : 'min(78vh, 720px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
         {hasHeroVideo ? (
           <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
             <iframe
@@ -160,18 +185,25 @@ export default function CaseStudyView({ caseId }) {
 
       {/* Metrics section */}
       {cs.metrics && cs.metrics.length > 0 && (
-        <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(56px,8vw,96px) clamp(24px,6vw,96px)' }}>
-          <div className="cs-metrics-grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${cs.metrics.length}, 1fr)`, gap: 'clamp(24px,4vw,56px)' }}>
+        <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,7vw,80px) clamp(24px,6vw,96px) 0' }}>
+          <div className="cs-metrics-grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${cs.metrics.length}, 1fr)`, gap: 'clamp(16px,3vw,48px)' }}>
             {cs.metrics.map((m, i) => (
-              <div key={i} style={{ textAlign: 'center', padding: 'clamp(28px,3vw,48px) 20px', borderRadius: 16, border: `1px solid ${C.line}`, background: 'rgba(255,255,255,0.02)' }}>
-                <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'center' }}>
+              <div key={i} style={{ textAlign: 'center', padding: 'clamp(24px,3vw,44px) 16px', borderRadius: 16, border: `1px solid ${C.line}`, background: 'rgba(255,255,255,0.02)' }}>
+                <div style={{ marginBottom: 14, display: 'flex', justifyContent: 'center' }}>
                   <MetricIcon type={m.icon} />
                 </div>
-                <div style={{ fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(42px,5vw,72px)', lineHeight: 1, letterSpacing: '-0.03em', color: C.ink }}>{m.value}</div>
-                <div style={{ marginTop: 12, fontFamily: F.mono, fontSize: 12, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.cyan }}>{m.label}</div>
+                <div style={{ fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(40px,5vw,68px)', lineHeight: 1, letterSpacing: '-0.03em', color: C.ink }}>{m.value}</div>
+                <div style={{ marginTop: 10, fontFamily: F.mono, fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.cyan }}>{m.label}</div>
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      {/* Photo carousel for heroVideo cases — placed right after metrics */}
+      {hasHeroVideo && cs.photos && cs.photos.length > 0 && (
+        <section style={{ padding: 'clamp(40px,6vw,72px) 0 0' }}>
+          <PhotoCarousel photos={cs.photos} title={cs.title} />
         </section>
       )}
 
@@ -214,12 +246,15 @@ export default function CaseStudyView({ caseId }) {
       )}
 
       {/* Challenge / Experience / Impact */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(64px,9vw,120px) clamp(24px,6vw,96px)' }}>
-        <div style={{ display: 'grid', gap: 'clamp(40px,5vw,72px)' }}>
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,7vw,80px) clamp(24px,6vw,96px)' }}>
+        <div style={{ display: 'grid', gap: 'clamp(36px,4vw,56px)' }}>
           {details.map((d) => (
             <div key={d.n} className="cs-detail-row" style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: 'clamp(20px,4vw,56px)', alignItems: 'start', paddingTop: 34, borderTop: `1px solid ${C.line}` }}>
               <div>
-                <div style={{ fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(34px,4vw,56px)', lineHeight: 1, letterSpacing: '-0.02em', color: d.accent ? C.red : 'rgba(244,243,248,0.18)' }}>{d.n}</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                  <div style={{ fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(34px,4vw,56px)', lineHeight: 1, letterSpacing: '-0.02em', color: d.accent ? C.red : 'rgba(244,243,248,0.18)' }}>{d.n}</div>
+                  <div style={{ color: d.accent ? C.red : C.cyan, opacity: 0.6 }}><DetailIcon type={d.icon} /></div>
+                </div>
                 <div style={{ marginTop: 14, fontFamily: F.mono, fontSize: 12, letterSpacing: '0.16em', textTransform: 'uppercase', color: d.accent ? C.redBright : C.cyan }}>{d.label}</div>
               </div>
               <p style={{ margin: 0, fontFamily: F.sans, fontSize: 'clamp(19px,2vw,26px)', lineHeight: 1.5, color: d.accent ? C.ink : C.muted, textWrap: 'pretty', maxWidth: '34ch' }}>{d.body}</p>
@@ -227,20 +262,13 @@ export default function CaseStudyView({ caseId }) {
           ))}
         </div>
 
-        <div style={{ marginTop: 'clamp(56px,7vw,88px)', display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+        <div style={{ marginTop: 'clamp(48px,6vw,72px)', display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
           <Link href="/#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: F.mono, fontSize: 13, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', color: '#fff', background: C.red, padding: '16px 30px', borderRadius: 'var(--radius-button)' }}
             onMouseEnter={(e) => (e.currentTarget.style.background = C.redBright)} onMouseLeave={(e) => (e.currentTarget.style.background = C.red)}>Start a project like this →</Link>
           <Link href="/work" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: F.mono, fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', color: C.ink, padding: '16px 28px', borderRadius: 'var(--radius-button)', border: `1px solid ${C.line}` }}
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = C.ink)} onMouseLeave={(e) => (e.currentTarget.style.borderColor = C.line)}>All case studies</Link>
         </div>
       </section>
-
-      {/* Photo carousel for heroVideo cases */}
-      {hasHeroVideo && cs.photos && cs.photos.length > 0 && (
-        <section style={{ paddingBottom: 'clamp(48px,7vw,80px)' }}>
-          <PhotoCarousel photos={cs.photos} title={cs.title} />
-        </section>
-      )}
 
       <nav style={{ borderTop: `1px solid ${C.line}`, background: '#0A0814' }}>
         <div className="cs-nav-grid" style={{ maxWidth: 1360, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1px 1fr' }}>
