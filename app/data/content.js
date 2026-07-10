@@ -152,6 +152,17 @@ export const cases = [
       { value: '3', label: 'Formats Delivered', icon: 'screen' },
     ],
     photos: ['/assets/cases/afc-congress-01.webp', '/assets/cases/afc-congress-02.webp', '/assets/cases/afc-congress-03.webp'] },
+
+  { n: '05', client: 'BMW Malaysia', title: 'BMW 7 Series Gala Dinner', category: 'Corporate Event', photo: '/assets/cases/bmw-7series-02.webp',
+    challenge: 'The BMW 7 Series occupies a specific place in the automotive world: it is a car that says something about its owner, and a launch event for the model needed to be an experience worthy of that statement. BMW Malaysia needed to bring its newest generation of modern luxury to life across multiple consecutive show nights — maintaining the quality and energy of a world-class brand event across every performance, for every audience. Nothing about the format could feel repeated.',
+    experience: 'We designed a grand gala dinner built around the 7 Series as its centrepiece — using the car not as a backdrop but as the visual heart of the event. The evening\'s most striking moment featured a live fashion show staged on and around a BMW 7 Series, turning the vehicle into a runway in its own right and making the point that the 7 Series doesn\'t just transport its owner — it defines the space they inhabit. Creative direction, production design, talent and fashion coordination, venue dressing, and seven technically identical but experientially fresh show nights were all delivered within a five-day window that demanded both precision and endurance.',
+    impact: 'Across 7 shows in 5 days, the BMW 7 Series Gala Dinner turned a model launch into an experience that communicated everything the 7 Series represents — elegance, confidence, and a standard of living that the car itself embodies. For BMW Malaysia, the event set the tone for the 7 Series in the market: not just as a vehicle, but as a statement.',
+    metrics: [
+      { value: '7', label: 'Shows Delivered', icon: 'screen' },
+      { value: '5', label: 'Days of Production', icon: 'calendar' },
+      { value: '1', label: 'Iconic Fashion Runway', icon: 'globe' },
+    ],
+    photos: ['/assets/cases/bmw-7series-01.webp', '/assets/cases/bmw-7series-02.webp', '/assets/cases/bmw-7series-03.webp', '/assets/cases/bmw-7series-04.webp'] },
 ];
 
 export const journey = [
