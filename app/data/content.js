@@ -120,10 +120,12 @@ export const cases = [
     experience: 'Hotshoes brought the 7-Eleven RamRaya campaign to life through a mobile roadshow journey designed around interaction, participation and festive brand storytelling.',
     impact: 'A consumer-facing activation that helped 7-Eleven show up with relevance during a key seasonal moment.',
     youtubeId: 'MYua2cFZDcU' },
-  { n: '04', client: 'AFC', title: 'AFC Trusted Event Partner', category: 'M.I.C.E.', photo: '/assets/cases/afc-congress.webp',
-    challenge: 'Support a trusted regional partner with event delivery that required precision, reliability and strong operational control.',
-    experience: 'Hotshoes provided event expertise across planning, coordination, production and on-ground execution for the AFC Congress.',
-    impact: 'A dependable event partnership built on trust, consistency and delivery confidence.' },
+  { n: '04', client: 'AFC', title: 'AFC Congress', category: 'M.I.C.E.', photo: '/assets/cases/afc-congress-02.webp',
+    challenge: 'The Asian Football Confederation required a long-term event partner capable of delivering its flagship annual Congress at the highest level of international sports governance — across physical, virtual, and hybrid formats, in multiple host cities including Bahrain and Budapest, over more than a decade. The brief was not a single event but a sustained relationship: a partnership that could grow with the AFC’s ambitions and adapt to whatever the world demanded.',
+    experience: 'We became AFC’s delivery partner for the annual Congress, supporting the full programme over twelve years across changing formats and locations. As the pandemic forced sports governance events online, we adapted seamlessly — building the virtual congress infrastructure that allowed AFC’s member associations to participate fully without compromising the authority or professionalism of the proceedings. From the physical stage to the virtual platform, we maintained the production quality and delegate experience that AFC’s international standing required.',
+    impact: 'Over 12 years and 47 countries represented, our partnership with AFC Congress built one of the most enduring track records in regional sports events management — proving that sustained delivery excellence, not just individual event success, is what defines the most valuable agency relationships.',
+    youtubeId: '6krgHa3aUpg',
+    photos: ['/assets/cases/afc-congress-01.webp', '/assets/cases/afc-congress-02.webp', '/assets/cases/afc-congress-03.webp'] },
 ];
 
 export const journey = [
