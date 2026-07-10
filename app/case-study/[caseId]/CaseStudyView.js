@@ -128,6 +128,33 @@ export default function CaseStudyView({ caseId }) {
   ];
 
   const hasHeroVideo = cs.heroVideo && cs.youtubeId;
+  const playerRef = useRef(null);
+  const [muted, setMuted] = useState(true);
+
+  useEffect(() => {
+    if (!hasHeroVideo) return;
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+      document.head.appendChild(tag);
+    }
+    const initPlayer = () => {
+      if (!window.YT?.Player) return;
+      playerRef.current = new window.YT.Player('yt-hero-player', {
+        events: { onReady: (e) => { e.target.setVolume(80); } }
+      });
+    };
+    if (window.YT?.Player) initPlayer();
+    else window.onYouTubeIframeAPIReady = initPlayer;
+    return () => { playerRef.current = null; };
+  }, [hasHeroVideo, cs.youtubeId]);
+
+  const toggleMute = () => {
+    const p = playerRef.current;
+    if (!p) return;
+    if (muted) { p.unMute(); setMuted(false); }
+    else { p.mute(); setMuted(true); }
+  };
 
   return (
     <div>
@@ -156,6 +183,7 @@ export default function CaseStudyView({ caseId }) {
         {hasHeroVideo ? (
           <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
             <iframe
+              id="yt-hero-player"
               src={`https://www.youtube.com/embed/${cs.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${cs.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1`}
               title={`${cs.title} — Background Video`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
@@ -179,6 +207,22 @@ export default function CaseStudyView({ caseId }) {
           <h1 style={{ margin: 0, fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(38px,6.4vw,92px)', lineHeight: 0.94, letterSpacing: '-0.03em', color: C.ink, textTransform: 'uppercase', textWrap: 'balance', maxWidth: '16ch' }}>{cs.title}</h1>
           <p style={{ margin: '24px 0 0', fontFamily: F.mono, fontSize: 12.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.muted }}>{cs.category}</p>
         </div>
+        {hasHeroVideo && (
+          <button onClick={toggleMute} aria-label={muted ? 'Unmute video' : 'Mute video'}
+            style={{ position: 'absolute', bottom: 'clamp(24px,4vw,48px)', right: 'clamp(24px,6vw,96px)', zIndex: 10,
+              width: 48, height: 48, borderRadius: '50%', border: `1px solid rgba(255,255,255,0.3)`,
+              background: 'rgba(7,6,15,0.55)', backdropFilter: 'blur(8px)', color: '#fff',
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              transition: 'all .25s' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(7,6,15,0.8)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.6)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(7,6,15,0.55)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}>
+            {muted ? (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            ) : (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            )}
+          </button>
+        )}
       </section>
 
       <div style={{ height: 3, background: 'linear-gradient(90deg, #1FD0F0, #2E5BFF, #6E2BE8, #C026D3, #ED1C2E)' }} />
