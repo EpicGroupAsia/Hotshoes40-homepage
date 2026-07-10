@@ -125,6 +125,12 @@ export const cases = [
     experience: 'We became AFC’s delivery partner for the annual Congress, supporting the full programme over twelve years across changing formats and locations. As the pandemic forced sports governance events online, we adapted seamlessly — building the virtual congress infrastructure that allowed AFC’s member associations to participate fully without compromising the authority or professionalism of the proceedings. From the physical stage to the virtual platform, we maintained the production quality and delegate experience that AFC’s international standing required.',
     impact: 'Over 12 years and 47 countries represented, our partnership with AFC Congress built one of the most enduring track records in regional sports events management — proving that sustained delivery excellence, not just individual event success, is what defines the most valuable agency relationships.',
     youtubeId: '6krgHa3aUpg',
+    heroVideo: true,
+    metrics: [
+      { value: '12+', label: 'Years of Partnership', icon: 'calendar' },
+      { value: '47', label: 'Countries Represented', icon: 'globe' },
+      { value: '3', label: 'Formats Delivered', icon: 'screen' },
+    ],
     photos: ['/assets/cases/afc-congress-01.webp', '/assets/cases/afc-congress-02.webp', '/assets/cases/afc-congress-03.webp'] },
 ];
 

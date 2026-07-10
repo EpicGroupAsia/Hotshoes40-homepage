@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { C, F } from "../../components/Shared";
@@ -8,6 +8,86 @@ import { cases } from "../../data/content";
 
 const pad = (n) => String(n).padStart(2, "0");
 const caseHref = (cs) => `/case-study/${cs.n}`;
+
+const MetricIcon = ({ type }) => {
+  const s = { width: 32, height: 32, stroke: C.cyan, strokeWidth: 1.5, fill: 'none' };
+  if (type === 'calendar') return (
+    <svg viewBox="0 0 24 24" style={s}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+  );
+  if (type === 'globe') return (
+    <svg viewBox="0 0 24 24" style={s}><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  );
+  if (type === 'screen') return (
+    <svg viewBox="0 0 24 24" style={s}><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+  );
+  return null;
+};
+
+function PhotoCarousel({ photos, title }) {
+  const trackRef = useRef(null);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
+
+  const updateButtons = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    setCanPrev(el.scrollLeft > 10);
+    setCanNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.addEventListener('scroll', updateButtons, { passive: true });
+    updateButtons();
+    return () => el.removeEventListener('scroll', updateButtons);
+  }, [updateButtons]);
+
+  const scroll = (dir) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * 400, behavior: 'smooth' });
+  };
+
+  const btnStyle = (enabled) => ({
+    width: 48, height: 48, borderRadius: '50%', border: `1px solid ${enabled ? C.ink : C.line}`,
+    background: 'transparent', color: enabled ? C.ink : C.dim, cursor: enabled ? 'pointer' : 'default',
+    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 20,
+    transition: 'all .25s', opacity: enabled ? 1 : 0.4,
+  });
+
+  return (
+    <div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24, padding: '0 clamp(24px,6vw,96px)' }}>
+        <p style={{ margin: 0, fontFamily: F.mono, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.cyan, display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span style={{ width: 7, height: 7, background: C.red, display: 'inline-block' }} />
+          Gallery
+        </p>
+        <div style={{ display: 'flex', gap: 12 }}>
+          <button onClick={() => scroll(-1)} style={btnStyle(canPrev)} aria-label="Previous photos">←</button>
+          <button onClick={() => scroll(1)} style={btnStyle(canNext)} aria-label="Next photos">→</button>
+        </div>
+      </div>
+      <div ref={trackRef} style={{
+        display: 'flex', gap: 20, overflowX: 'auto', scrollSnapType: 'x mandatory',
+        paddingLeft: 'clamp(24px,6vw,96px)', paddingRight: 'clamp(24px,6vw,96px)', paddingBottom: 8,
+        scrollbarWidth: 'none', msOverflowStyle: 'none',
+      }}>
+        <style>{`.cs-carousel-track::-webkit-scrollbar{display:none}`}</style>
+        {photos.map((src, i) => (
+          <div key={i} className="cs-carousel-track" style={{
+            flex: '0 0 auto', width: 'clamp(280px, 38vw, 480px)', aspectRatio: '4 / 3',
+            borderRadius: 16, overflow: 'hidden', scrollSnapAlign: 'start',
+            border: `1px solid ${C.line}`, background: '#000',
+          }}>
+            <img src={src} alt={`${title} — photo ${i + 1}`} loading="lazy"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function CaseStudyView({ caseId }) {
   const router = useRouter();
@@ -33,6 +113,8 @@ export default function CaseStudyView({ caseId }) {
     { n: "03", label: "The Impact", body: cs.impact, accent: true },
   ];
 
+  const hasHeroVideo = cs.heroVideo && cs.youtubeId;
+
   return (
     <div>
       <header style={{ position: 'sticky', top: 0, zIndex: 30, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -44,9 +126,24 @@ export default function CaseStudyView({ caseId }) {
         </Link>
       </header>
 
-      <section className="cs-rise" key={`hero-${cs.n}`} style={{ position: 'relative', minHeight: 'min(78vh, 720px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
-        <img src={cs.photo} alt={cs.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(7,6,15,0.96) 0%, rgba(7,6,15,0.55) 42%, rgba(7,6,15,0.12) 78%, rgba(7,6,15,0.4) 100%)' }} />
+      {/* Hero — video background or static image */}
+      <section className="cs-rise" key={`hero-${cs.n}`} style={{ position: 'relative', minHeight: hasHeroVideo ? 'min(88vh, 820px)' : 'min(78vh, 720px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
+        {hasHeroVideo ? (
+          <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${cs.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${cs.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1`}
+              title={`${cs.title} — Background Video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+              style={{ position: 'absolute', top: '50%', left: '50%', width: '180%', height: '180%', transform: 'translate(-50%, -50%)', border: 'none' }}
+            />
+          </div>
+        ) : (
+          <img src={cs.photo} alt={cs.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+        )}
+        <div style={{ position: 'absolute', inset: 0, background: hasHeroVideo
+          ? 'linear-gradient(0deg, rgba(7,6,15,0.98) 0%, rgba(7,6,15,0.7) 35%, rgba(7,6,15,0.25) 65%, rgba(7,6,15,0.5) 100%)'
+          : 'linear-gradient(0deg, rgba(7,6,15,0.96) 0%, rgba(7,6,15,0.55) 42%, rgba(7,6,15,0.12) 78%, rgba(7,6,15,0.4) 100%)'
+        }} />
         <div style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: 1360, margin: '0 auto', padding: 'clamp(40px,7vw,96px) clamp(24px,6vw,96px)' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 14, fontFamily: F.mono, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.cyan, marginBottom: 22 }}>
             <span style={{ width: 7, height: 7, background: C.red }} />
@@ -61,8 +158,25 @@ export default function CaseStudyView({ caseId }) {
 
       <div style={{ height: 3, background: 'linear-gradient(90deg, #1FD0F0, #2E5BFF, #6E2BE8, #C026D3, #ED1C2E)' }} />
 
-      {/* YouTube video + photos media section */}
-      {(cs.youtubeId || (cs.photos && cs.photos.length > 0)) && (
+      {/* Metrics section */}
+      {cs.metrics && cs.metrics.length > 0 && (
+        <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(56px,8vw,96px) clamp(24px,6vw,96px)' }}>
+          <div className="cs-metrics-grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${cs.metrics.length}, 1fr)`, gap: 'clamp(24px,4vw,56px)' }}>
+            {cs.metrics.map((m, i) => (
+              <div key={i} style={{ textAlign: 'center', padding: 'clamp(28px,3vw,48px) 20px', borderRadius: 16, border: `1px solid ${C.line}`, background: 'rgba(255,255,255,0.02)' }}>
+                <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'center' }}>
+                  <MetricIcon type={m.icon} />
+                </div>
+                <div style={{ fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(42px,5vw,72px)', lineHeight: 1, letterSpacing: '-0.03em', color: C.ink }}>{m.value}</div>
+                <div style={{ marginTop: 12, fontFamily: F.mono, fontSize: 12, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.cyan }}>{m.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Standard YouTube video + grid photos for non-heroVideo cases */}
+      {!hasHeroVideo && (cs.youtubeId || (cs.photos && cs.photos.length > 0)) && (
         <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,7vw,80px) clamp(24px,6vw,96px) 0' }}>
           {cs.youtubeId && (
             <div style={{ marginBottom: cs.photos?.length ? 32 : 0 }}>
@@ -99,6 +213,7 @@ export default function CaseStudyView({ caseId }) {
         </section>
       )}
 
+      {/* Challenge / Experience / Impact */}
       <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(64px,9vw,120px) clamp(24px,6vw,96px)' }}>
         <div style={{ display: 'grid', gap: 'clamp(40px,5vw,72px)' }}>
           {details.map((d) => (
@@ -119,6 +234,13 @@ export default function CaseStudyView({ caseId }) {
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = C.ink)} onMouseLeave={(e) => (e.currentTarget.style.borderColor = C.line)}>All case studies</Link>
         </div>
       </section>
+
+      {/* Photo carousel for heroVideo cases */}
+      {hasHeroVideo && cs.photos && cs.photos.length > 0 && (
+        <section style={{ paddingBottom: 'clamp(48px,7vw,80px)' }}>
+          <PhotoCarousel photos={cs.photos} title={cs.title} />
+        </section>
+      )}
 
       <nav style={{ borderTop: `1px solid ${C.line}`, background: '#0A0814' }}>
         <div className="cs-nav-grid" style={{ maxWidth: 1360, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1px 1fr' }}>
