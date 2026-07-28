@@ -37,10 +37,22 @@ const DetailIcon = ({ type }) => {
   return null;
 };
 
+// Slides are clamped between 4:3 and 3:4 — anything wider or taller is cropped
+// to that bound, which keeps the row consistent and tightens the framing.
+const MAX_RATIO = 4 / 3;
+const MIN_RATIO = 3 / 4;
+const clampRatio = (w, h) => Math.min(MAX_RATIO, Math.max(MIN_RATIO, w / h));
+
 function PhotoCarousel({ photos, title }) {
   const trackRef = useRef(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const [ratios, setRatios] = useState({});
+
+  const measure = useCallback((i, el) => {
+    const { naturalWidth: w, naturalHeight: h } = el;
+    if (w && h) setRatios((r) => (r[i] ? r : { ...r, [i]: clampRatio(w, h) }));
+  }, []);
 
   const updateButtons = useCallback(() => {
     const el = trackRef.current;
@@ -88,17 +100,25 @@ function PhotoCarousel({ photos, title }) {
         scrollbarWidth: 'none', msOverflowStyle: 'none',
       }}>
         <style>{`.cs-carousel-track::-webkit-scrollbar{display:none}`}</style>
-        {photos.map((src, i) => (
-          <div key={i} style={{
-            flex: '0 0 auto', height: 'clamp(260px, 40vw, 440px)',
-            borderRadius: 16, overflow: 'hidden', scrollSnapAlign: 'start',
-            border: `1px solid ${C.line}`, background: '#000',
-          }}>
-            {/* width auto keeps each photo's own aspect ratio — portraits stay portrait */}
-            <img src={src} alt={`${title} — photo ${i + 1}`} loading="lazy"
-              style={{ height: '100%', width: 'auto', display: 'block' }} />
-          </div>
-        ))}
+        {photos.map((src, i) => {
+          const ratio = ratios[i] ?? 1;
+          return (
+            <div key={i} style={{
+              flex: '0 0 auto', height: 'clamp(260px, 40vw, 440px)', aspectRatio: String(ratio),
+              borderRadius: 16, overflow: 'hidden', scrollSnapAlign: 'start',
+              border: `1px solid ${C.line}`, background: '#000',
+            }}>
+              <img src={src} alt={`${title} — photo ${i + 1}`} loading="lazy"
+                ref={(el) => { if (el?.complete) measure(i, el); }}
+                onLoad={(e) => measure(i, e.currentTarget)}
+                style={{
+                  width: '100%', height: '100%', display: 'block', objectFit: 'cover',
+                  // portraits crop top-and-bottom, so bias upward to keep faces in frame
+                  objectPosition: ratio < 1 ? 'center 30%' : 'center',
+                }} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
