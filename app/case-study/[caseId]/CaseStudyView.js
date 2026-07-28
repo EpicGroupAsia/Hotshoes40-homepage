@@ -90,12 +90,13 @@ function PhotoCarousel({ photos, title }) {
         <style>{`.cs-carousel-track::-webkit-scrollbar{display:none}`}</style>
         {photos.map((src, i) => (
           <div key={i} style={{
-            flex: '0 0 auto', width: 'clamp(280px, 38vw, 480px)', aspectRatio: '4 / 3',
+            flex: '0 0 auto', height: 'clamp(260px, 40vw, 440px)',
             borderRadius: 16, overflow: 'hidden', scrollSnapAlign: 'start',
             border: `1px solid ${C.line}`, background: '#000',
           }}>
+            {/* width auto keeps each photo's own aspect ratio — portraits stay portrait */}
             <img src={src} alt={`${title} — photo ${i + 1}`} loading="lazy"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              style={{ height: '100%', width: 'auto', display: 'block' }} />
           </div>
         ))}
       </div>
