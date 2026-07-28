@@ -184,7 +184,7 @@ export const cases = [
       { value: '10', label: 'Cat Cafés Activated', icon: 'screen' },
       { value: '4', label: 'Activation Stops', icon: 'calendar' },
     ],
-    photos: ['/assets/cases/purina-catcafe-01.webp', '/assets/cases/purina-catcafe-02.webp', '/assets/cases/purina-catcafe-03.webp', '/assets/cases/purina-catcafe-04.webp', '/assets/cases/purina-catcafe-05.webp'] },
+    photos: ['/assets/cases/purina-catcafe-01.webp', '/assets/cases/purina-catcafe-02.webp', '/assets/cases/purina-catcafe-03.webp', '/assets/cases/purina-catcafe-04.webp', '/assets/cases/purina-catcafe-05.webp', '/assets/cases/purina-catcafe-06.webp', '/assets/cases/purina-catcafe-07.webp'] },
 ];
 
 export const journey = [
