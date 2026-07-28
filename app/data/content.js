@@ -175,6 +175,16 @@ export const cases = [
       { value: '3', label: 'Venue Types Nationwide', icon: 'screen' },
     ],
     photos: ['/assets/cases/nescafe-yay-01.webp', '/assets/cases/nescafe-yay-02.webp', '/assets/cases/nescafe-yay-03.webp', '/assets/cases/nescafe-yay-04.webp', '/assets/cases/nescafe-yay-05.webp'] },
+  { n: '07', client: 'Nestlé Purina', title: 'Fancy Feast Cat Café Takeover', category: 'Brand Activation', photo: '/assets/cases/purina-catcafe-cover.webp',
+    challenge: 'Nestlé Purina needed to bring Fancy Feast\'s gourmet brand promise to life in an immersive, targeted setting that would resonate with Malaysia\'s growing community of passionate cat owners — creating genuine brand affinity through shared experiences rather than advertising alone.',
+    experience: 'We executed a four-stop cat café takeover across 10 cat cafés in the Klang Valley, transforming each venue into a five-star feline dining experience. Guests were treated to product tastings, wellness check-up stations, interactive games, and a cat talent show — creating a warm, premium environment that immersed participants in the Fancy Feast brand story from the moment they arrived. Post-event loyalty was sustained through digital seeding and an ongoing rewards program that extended the brand relationship well beyond the activation itself.',
+    impact: 'The initiative generated 3,500 total engagements across 10 cat cafés, deepening brand loyalty and driving product trial throughout the Klang Valley — while strengthening Fancy Feast\'s positioning as a premium brand that genuinely celebrates the bond between cats and their owners.',
+    metrics: [
+      { value: '3.5K', label: 'Total Engagements', icon: 'globe' },
+      { value: '10', label: 'Cat Cafés Activated', icon: 'screen' },
+      { value: '4', label: 'Activation Stops', icon: 'calendar' },
+    ],
+    photos: ['/assets/cases/purina-catcafe-01.webp', '/assets/cases/purina-catcafe-02.webp', '/assets/cases/purina-catcafe-03.webp', '/assets/cases/purina-catcafe-04.webp', '/assets/cases/purina-catcafe-05.webp'] },
 ];
 
 export const journey = [
