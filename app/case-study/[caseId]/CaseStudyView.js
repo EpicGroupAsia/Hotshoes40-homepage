@@ -244,48 +244,29 @@ export default function CaseStudyView({ caseId }) {
         </section>
       )}
 
-      {/* Photo carousel for heroVideo cases — placed right after metrics */}
-      {hasHeroVideo && cs.photos && cs.photos.length > 0 && (
-        <section style={{ padding: 'clamp(40px,6vw,72px) 0 0' }}>
-          <PhotoCarousel photos={cs.photos} title={cs.title} />
+      {/* Standalone campaign video for cases without a video hero */}
+      {!hasHeroVideo && cs.youtubeId && (
+        <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,7vw,80px) clamp(24px,6vw,96px) 0' }}>
+          <p style={{ margin: '0 0 18px', fontFamily: F.mono, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.cyan, display: 'flex', alignItems: 'center', gap: 10 }}>
+            <span style={{ width: 7, height: 7, background: C.red, display: 'inline-block' }} />
+            Campaign Video
+          </p>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', borderRadius: 'var(--radius-panel)', overflow: 'hidden', background: '#000', border: `1px solid ${C.line}` }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${cs.youtubeId}?rel=0&modestbranding=1`}
+              title={`${cs.title} — Campaign Video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+            />
+          </div>
         </section>
       )}
 
-      {/* Standard YouTube video + grid photos for non-heroVideo cases */}
-      {!hasHeroVideo && (cs.youtubeId || (cs.photos && cs.photos.length > 0)) && (
-        <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,7vw,80px) clamp(24px,6vw,96px) 0' }}>
-          {cs.youtubeId && (
-            <div style={{ marginBottom: cs.photos?.length ? 32 : 0 }}>
-              <p style={{ margin: '0 0 18px', fontFamily: F.mono, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.cyan, display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span style={{ width: 7, height: 7, background: C.red, display: 'inline-block' }} />
-                Campaign Video
-              </p>
-              <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', borderRadius: 'var(--radius-panel)', overflow: 'hidden', background: '#000', border: `1px solid ${C.line}` }}>
-                <iframe
-                  src={`https://www.youtube.com/embed/${cs.youtubeId}?rel=0&modestbranding=1`}
-                  title={`${cs.title} — Campaign Video`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
-                />
-              </div>
-            </div>
-          )}
-          {cs.photos && cs.photos.length > 0 && (
-            <div>
-              <p style={{ margin: '0 0 18px', fontFamily: F.mono, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: C.cyan, display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span style={{ width: 7, height: 7, background: C.red, display: 'inline-block' }} />
-                Campaign Gallery
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: 16 }}>
-                {cs.photos.map((src, i) => (
-                  <div key={i} style={{ aspectRatio: '4 / 3', borderRadius: 12, overflow: 'hidden', border: `1px solid ${C.line}`, background: '#000' }}>
-                    <img src={src} alt={`${cs.title} — photo ${i + 1}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+      {/* Photo carousel — placed right after metrics */}
+      {cs.photos && cs.photos.length > 0 && (
+        <section style={{ padding: 'clamp(40px,6vw,72px) 0 0' }}>
+          <PhotoCarousel photos={cs.photos} title={cs.title} />
         </section>
       )}
 
