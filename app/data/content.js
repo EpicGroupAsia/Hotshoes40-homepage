@@ -185,6 +185,16 @@ export const cases = [
       { value: '4', label: 'Activation Stops', icon: 'calendar' },
     ],
     photos: ['/assets/cases/purina-catcafe-01.webp', '/assets/cases/purina-catcafe-02.webp', '/assets/cases/purina-catcafe-03.webp', '/assets/cases/purina-catcafe-04.webp', '/assets/cases/purina-catcafe-05.webp', '/assets/cases/purina-catcafe-06.webp', '/assets/cases/purina-catcafe-07.webp'] },
+  { n: '08', client: 'Hyundai Malaysia', title: 'Hyundai KLIMS Booth', category: 'Brand Activation', photo: '/assets/cases/hyundai-klims-cover.webp',
+    challenge: 'Hyundai Malaysia sought to create a standout presence at KLIMS (Kuala Lumpur International Motor Show) that would captivate visitors and communicate the brand\'s progressive vision in a highly competitive automotive showcase environment with dozens of brands vying for attention across the showroom floor.',
+    experience: 'We designed and built an innovative two-tier booth spanning 850 sqm to maximize visibility and accessibility across the showroom floor. The booth housed 9 cars alongside immersive brand experiences including the Hyundai AR app, a 4D VR Simulator, a second-floor lounge area and bar, a merchandise store, and a dedicated feature space for Hyundai\'s concept car — the centerpiece of the entire display. The multi-level design made the Hyundai booth one of the most distinctive and navigable in the entire show, drawing visitors up and across both floors through a carefully designed visitor journey.',
+    impact: 'The bold, multi-level booth design ensured Hyundai stood out across the entire KLIMS floor — with 850 sqm of immersive brand space hosting 9 vehicles, the concept car as a hero centrepiece, a 4D VR Simulator, and a second-floor hospitality zone. The activation drove strong footfall, meaningful dwell time, and lasting impressions of the brand\'s innovation and design leadership in Malaysia\'s competitive automotive market.',
+    metrics: [
+      { value: '850', label: 'Sqm of Booth Space', icon: 'globe' },
+      { value: '9', label: 'Vehicles Showcased', icon: 'screen' },
+      { value: '2', label: 'Levels of Experience', icon: 'calendar' },
+    ],
+    photos: ['/assets/cases/hyundai-klims-01.webp', '/assets/cases/hyundai-klims-02.webp', '/assets/cases/hyundai-klims-03.webp'] },
 ];
 
 export const journey = [
