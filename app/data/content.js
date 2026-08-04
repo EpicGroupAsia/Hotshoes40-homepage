@@ -163,7 +163,8 @@ export const cases = [
       { value: '5', label: 'Days of Production', icon: 'calendar' },
       { value: '1', label: 'Iconic Fashion Runway', icon: 'globe' },
     ],
-    photos: ['/assets/cases/bmw-7series-01.webp', '/assets/cases/bmw-7series-02.webp', '/assets/cases/bmw-7series-03.webp', '/assets/cases/bmw-7series-04.webp'] },
+    photos: ['/assets/cases/bmw-7series-01.webp', '/assets/cases/bmw-7series-02.webp', '/assets/cases/bmw-7series-03.webp', '/assets/cases/bmw-7series-04.webp'],
+    youtubeId: 'bVMCOq73fUc', heroVideo: true },
 
   { n: '06', client: 'Nescafé RTD', title: 'Nescafé "Start the Yay" OOH Activation', category: 'Brand Activation', photo: '/assets/cases/nescafe-yay-cover.webp',
     challenge: 'NESCAFE RTD needed to amplify the "Start the Yay" campaign beyond retail, taking the brand message into high-visibility public spaces to create impact, drive trial, and inspire social sharing among young consumers — turning the campaign into a cultural moment rather than just a product push.',
