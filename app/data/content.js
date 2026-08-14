@@ -186,6 +186,26 @@ export const cases = [
       { value: '4', label: 'Activation Stops', icon: 'calendar' },
     ],
     photos: ['/assets/cases/purina-catcafe-01.webp', '/assets/cases/purina-catcafe-02.webp', '/assets/cases/purina-catcafe-03.webp', '/assets/cases/purina-catcafe-04.webp', '/assets/cases/purina-catcafe-05.webp', '/assets/cases/purina-catcafe-06.webp', '/assets/cases/purina-catcafe-07.webp'] },
+  { n: '08', client: 'Nescafé RTD', title: 'Nescafé Indulgence Launch & OOH', category: 'Brand Activation', photo: '/assets/cases/nescafe-indulgence-cover.webp',
+    challenge: 'Take Nescafé RTD Indulgence beyond the shelf and into the everyday places people already love to explore. The brief was to make the range feel easy to discover, easy to try and hard to miss — while keeping the brand experience as indulgent and playful as the drink itself.',
+    experience: 'We brought the campaign to life through a lively, multi-touchpoint activation across public retail and lifestyle spaces. A branded mobile setup, eye-catching product displays, sampling counters and playful game moments invited passers-by to pause, explore and choose their treat. From the Central Market street scene to the mall concourse, every touchpoint worked together to turn a simple coffee break into a little moment of indulgence.',
+    impact: 'Nescafé RTD Indulgence showed up where the audience was — creating a bold, photo-friendly presence in high-footfall spaces and giving people more than one way to engage. The activation turned everyday traffic into moments of product discovery, trial and conversation, making the brand feel present, playful and ready to enjoy on the go.',
+    metrics: [
+      { value: '4', label: 'Activation Touchpoints', icon: 'screen' },
+      { value: '2', label: 'Months of Rollout', icon: 'calendar' },
+      { value: '2', label: 'Venue Formats', icon: 'globe' },
+    ],
+    photos: ['/assets/cases/nescafe-indulgence-01.webp', '/assets/cases/nescafe-indulgence-02.webp', '/assets/cases/nescafe-indulgence-03.webp', '/assets/cases/nescafe-indulgence-04.webp', '/assets/cases/nescafe-indulgence-05.webp'] },
+  { n: '09', client: 'AIA Berhad', title: 'AIA OSS Annual Dinner 2026', category: 'Corporate Event', photo: '/assets/cases/aia-oss-cover.webp',
+    challenge: 'AIA OSS wanted its annual dinner to feel more than a formal date on the calendar. The brief was to bring colleagues together in a setting that celebrated the people behind the work — creating a night that felt polished, welcoming and genuinely shared.',
+    experience: 'We built an evening around connection, with an arrival experience, photowall moments, interactive stations and a light studio that kept guests moving, mingling and making memories throughout the night. Each touchpoint gave people a reason to step in, take part and enjoy the celebration together.',
+    impact: 'The annual dinner became a lively, people-first celebration — full of shared moments that travelled beyond the room. From candid interactions to keepsake photographs, the experience helped strengthen team spirit and gave AIA OSS a night worth talking about long after the lights came down.',
+    metrics: [
+      { value: '1,300', label: 'Guests Hosted', icon: 'globe' },
+      { value: '4', label: 'Experience Zones', icon: 'screen' },
+      { value: '1', label: 'Ballroom, One Night', icon: 'calendar' },
+    ],
+    photos: ['/assets/cases/aia-oss-01.webp', '/assets/cases/aia-oss-02.webp', '/assets/cases/aia-oss-03.webp', '/assets/cases/aia-oss-04.webp', '/assets/cases/aia-oss-05.webp'] },
 ];
 
 export const journey = [
