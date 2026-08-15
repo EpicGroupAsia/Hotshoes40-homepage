@@ -176,7 +176,7 @@ export const cases = [
       { value: '3', label: 'Venue Types Nationwide', icon: 'screen' },
     ],
     photos: ['/assets/cases/nescafe-yay-01.webp', '/assets/cases/nescafe-yay-02.webp', '/assets/cases/nescafe-yay-03.webp', '/assets/cases/nescafe-yay-04.webp', '/assets/cases/nescafe-yay-05.webp'] },
-  { n: '07', client: 'Nestlé Purina', title: 'Fancy Feast Cat Café Takeover', category: 'Brand Activation', photo: '/assets/cases/purina-catcafe-cover.webp',
+  { n: '07', client: 'Nestlé Purina', title: 'Fancy Feast Cat Café Takeover', category: 'Brand Activation', hidden: true, photo: '/assets/cases/purina-catcafe-cover.webp',
     challenge: 'Nestlé Purina needed to bring Fancy Feast\'s gourmet brand promise to life in an immersive, targeted setting that would resonate with Malaysia\'s growing community of passionate cat owners — creating genuine brand affinity through shared experiences rather than advertising alone.',
     experience: 'We executed a four-stop cat café takeover across 10 cat cafés in the Klang Valley, transforming each venue into a five-star feline dining experience. Guests were treated to product tastings, wellness check-up stations, interactive games, and a cat talent show — creating a warm, premium environment that immersed participants in the Fancy Feast brand story from the moment they arrived. Post-event loyalty was sustained through digital seeding and an ongoing rewards program that extended the brand relationship well beyond the activation itself.',
     impact: 'The initiative generated 3,500 total engagements across 10 cat cafés, deepening brand loyalty and driving product trial throughout the Klang Valley — while strengthening Fancy Feast\'s positioning as a premium brand that genuinely celebrates the bond between cats and their owners.',
@@ -186,7 +186,7 @@ export const cases = [
       { value: '4', label: 'Activation Stops', icon: 'calendar' },
     ],
     photos: ['/assets/cases/purina-catcafe-01.webp', '/assets/cases/purina-catcafe-02.webp', '/assets/cases/purina-catcafe-03.webp', '/assets/cases/purina-catcafe-04.webp', '/assets/cases/purina-catcafe-05.webp', '/assets/cases/purina-catcafe-06.webp', '/assets/cases/purina-catcafe-07.webp'] },
-  { n: '08', client: 'Nescafé RTD', title: 'Nescafé Indulgence Launch & OOH', category: 'Brand Activation', photo: '/assets/cases/nescafe-indulgence-cover.webp',
+  { n: '08', client: 'Nescafé RTD', title: 'Nescafé Indulgence Launch & OOH', category: 'Brand Activation', hidden: true, photo: '/assets/cases/nescafe-indulgence-cover.webp',
     challenge: 'Take Nescafé RTD Indulgence beyond the shelf and into the everyday places people already love to explore. The brief was to make the range feel easy to discover, easy to try and hard to miss — while keeping the brand experience as indulgent and playful as the drink itself.',
     experience: 'We brought the campaign to life through a lively, multi-touchpoint activation across public retail and lifestyle spaces. A branded mobile setup, eye-catching product displays, sampling counters and playful game moments invited passers-by to pause, explore and choose their treat. From the Central Market street scene to the mall concourse, every touchpoint worked together to turn a simple coffee break into a little moment of indulgence.',
     impact: 'Nescafé RTD Indulgence showed up where the audience was — creating a bold, photo-friendly presence in high-footfall spaces and giving people more than one way to engage. The activation turned everyday traffic into moments of product discovery, trial and conversation, making the brand feel present, playful and ready to enjoy on the go.',
@@ -196,7 +196,7 @@ export const cases = [
       { value: '2', label: 'Venue Formats', icon: 'globe' },
     ],
     photos: ['/assets/cases/nescafe-indulgence-01.webp', '/assets/cases/nescafe-indulgence-02.webp', '/assets/cases/nescafe-indulgence-03.webp', '/assets/cases/nescafe-indulgence-04.webp', '/assets/cases/nescafe-indulgence-05.webp'] },
-  { n: '09', client: 'AIA Berhad', title: 'AIA OSS Annual Dinner 2026', category: 'Corporate Event', photo: '/assets/cases/aia-oss-cover.webp',
+  { n: '09', client: 'AIA Berhad', title: 'AIA OSS Annual Dinner 2026', category: 'Corporate Event', hidden: true, photo: '/assets/cases/aia-oss-cover.webp',
     challenge: 'AIA OSS wanted its annual dinner to feel more than a formal date on the calendar. The brief was to bring colleagues together in a setting that celebrated the people behind the work — creating a night that felt polished, welcoming and genuinely shared.',
     experience: 'We built an evening around connection, with an arrival experience, photowall moments, interactive stations and a light studio that kept guests moving, mingling and making memories throughout the night. Each touchpoint gave people a reason to step in, take part and enjoy the celebration together.',
     impact: 'The annual dinner became a lively, people-first celebration — full of shared moments that travelled beyond the room. From candid interactions to keepsake photographs, the experience helped strengthen team spirit and gave AIA OSS a night worth talking about long after the lights came down.',
@@ -207,6 +207,11 @@ export const cases = [
     ],
     photos: ['/assets/cases/aia-oss-01.webp', '/assets/cases/aia-oss-02.webp', '/assets/cases/aia-oss-03.webp', '/assets/cases/aia-oss-04.webp', '/assets/cases/aia-oss-05.webp'] },
 ];
+
+// Cases shown in public listings (homepage slider, /work grid). Cases flagged
+// `hidden: true` still have live /case-study/<n> pages (e.g. linked from a
+// newsletter) but are not featured in the listings.
+export const visibleCases = cases.filter((c) => !c.hidden);
 
 export const journey = [
   { n: '01', stage: 'Awareness', label: 'Generate Brand Interest',

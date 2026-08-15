@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { C, F } from "../components/Shared";
-import { cases, caseCategories } from "../data/content";
+import { visibleCases as cases, caseCategories } from "../data/content";
 
 const ALL = "All";
 

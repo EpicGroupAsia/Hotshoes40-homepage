@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { C, F, prefersReduced, Reveal, Section, Eyebrow, Headline, Lead } from "./Shared";
-import { heroStatements, objectives, cases } from "../data/content";
+import { heroStatements, objectives, visibleCases as cases } from "../data/content";
 
 export function Hero() {
   const list = heroStatements;
