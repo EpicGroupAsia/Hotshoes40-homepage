@@ -208,9 +208,9 @@ export const cases = [
     photos: ['/assets/cases/aia-oss-01.webp', '/assets/cases/aia-oss-02.webp', '/assets/cases/aia-oss-03.webp', '/assets/cases/aia-oss-04.webp', '/assets/cases/aia-oss-05.webp'] },
 ];
 
-// Cases shown in public listings (homepage slider, /work grid). Cases flagged
-// `hidden: true` still have live /case-study/<n> pages (e.g. linked from a
-// newsletter) but are not featured in the listings.
+// Cases featured in the homepage "Selected Cases" slider only. The /work page
+// and every /case-study/<n> page still list all cases; `hidden: true` just
+// keeps a case out of the homepage rotation.
 export const visibleCases = cases.filter((c) => !c.hidden);
 
 export const journey = [
