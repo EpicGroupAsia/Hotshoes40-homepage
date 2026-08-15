@@ -225,7 +225,7 @@ export default function CaseStudyView({ caseId }) {
             <span style={{ color: C.dim }}>·</span>
             <span style={{ color: C.ink }}>{cs.client}</span>
           </div>
-          <h1 style={{ margin: 0, fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(38px,6.4vw,92px)', lineHeight: 0.94, letterSpacing: '-0.03em', color: C.ink, textTransform: 'uppercase', textWrap: 'balance', maxWidth: '16ch' }}>{cs.title}</h1>
+          <h1 style={{ margin: 0, fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(34px,5.6vw,80px)', lineHeight: 0.96, letterSpacing: '-0.03em', color: C.ink, textTransform: 'uppercase', textWrap: 'balance', maxWidth: '20ch' }}>{cs.headline || cs.title}</h1>
           <p style={{ margin: '24px 0 0', fontFamily: F.mono, fontSize: 12.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.muted }}>{cs.category}</p>
         </div>
         {hasHeroVideo && (
