@@ -20,6 +20,12 @@ const MetricIcon = ({ type }) => {
   if (type === 'screen') return (
     <svg viewBox="0 0 24 24" style={s}><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
   );
+  if (type === 'users') return (
+    <svg viewBox="0 0 24 24" style={s}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  );
+  if (type === 'trend') return (
+    <svg viewBox="0 0 24 24" style={s}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+  );
   return null;
 };
 
@@ -251,7 +257,7 @@ export default function CaseStudyView({ caseId }) {
       {/* Metrics section */}
       {cs.metrics && cs.metrics.length > 0 && (
         <section style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,7vw,80px) clamp(24px,6vw,96px) 0' }}>
-          <div className="cs-metrics-grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${cs.metrics.length}, 1fr)`, gap: 'clamp(16px,3vw,48px)' }}>
+          <div className="cs-metrics-grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${cs.metrics.length === 4 ? 2 : cs.metrics.length}, 1fr)`, gap: 'clamp(16px,3vw,48px)' }}>
             {cs.metrics.map((m, i) => (
               <div key={i} style={{ textAlign: 'center', padding: 'clamp(24px,3vw,44px) 16px', borderRadius: 16, border: `1px solid ${C.line}`, background: 'rgba(255,255,255,0.02)' }}>
                 <div style={{ marginBottom: 14, display: 'flex', justifyContent: 'center' }}>
@@ -259,6 +265,7 @@ export default function CaseStudyView({ caseId }) {
                 </div>
                 <div style={{ fontFamily: F.display, fontWeight: 900, fontSize: 'clamp(40px,5vw,68px)', lineHeight: 1, letterSpacing: '-0.03em', color: C.ink }}>{m.value}</div>
                 <div style={{ marginTop: 10, fontFamily: F.mono, fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.cyan }}>{m.label}</div>
+                {m.sub && <div style={{ marginTop: 8, fontFamily: F.sans, fontSize: 13, lineHeight: 1.4, color: C.muted }}>{m.sub}</div>}
               </div>
             ))}
           </div>
