@@ -206,6 +206,36 @@ export const cases = [
       { value: '1', label: 'Ballroom, One Night', icon: 'calendar' },
     ],
     photos: ['/assets/cases/aia-oss-01.webp', '/assets/cases/aia-oss-02.webp', '/assets/cases/aia-oss-03.webp', '/assets/cases/aia-oss-04.webp', '/assets/cases/aia-oss-05.webp'] },
+  { n: '10', client: 'AIA Berhad', title: 'AIA 2026 Advisor Conference', headline: "A Conference Built for Momentum", category: 'M.I.C.E.', hidden: true, photo: '/assets/cases/aia-advisor-cover.webp',
+    challenge: 'Deliver a large-scale advisor conference with a fast-moving programme, multiple breakout requirements and high expectations for a polished, unified guest experience. The team had to manage evolving show content while keeping every audience, screen and session connected.',
+    experience: 'A coordinated conference journey across the main programme, breakout rooms and foyer touchpoints. When a live feed from Halls 1 and 2 to Hall 3 was required at short notice, the team configured the cross-hall broadcast and then adapted the Hall 3 display onsite to run live video alongside presentation content. Behind the scenes, production, technical, stage and show teams worked through the changing run-of-show to keep the experience moving.',
+    impact: 'AIA’s advisors experienced one connected conference rather than a series of separate sessions — supported by a responsive production setup that accommodated late changes without losing the energy or intent of the programme.',
+    metrics: [
+      { value: '3', label: 'Halls Connected Live', icon: 'screen' },
+      { value: '3', label: 'Touchpoint Zones Aligned', icon: 'globe' },
+      { value: '1', label: 'Unified Advisor Journey', icon: 'calendar' },
+    ],
+    photos: ['/assets/cases/aia-advisor-01.webp', '/assets/cases/aia-advisor-02.webp', '/assets/cases/aia-advisor-03.webp', '/assets/cases/aia-advisor-04.webp', '/assets/cases/aia-advisor-05.webp'] },
+  { n: '11', client: 'Petrosains & DFP', title: 'Kuala Lumpur Seni & STEM Festival 2026', headline: "Where Science, Culture and Community Meet", category: 'Brand Activation', hidden: true, photo: '/assets/cases/klssf-01.webp',
+    challenge: 'Build an outdoor festival experience at KLCC Esplanade that could bring together science, arts and public engagement at scale — while working within six overnight setup windows, a multi-partner footprint and a firm site-clearance deadline.',
+    experience: 'We developed the strategic, creative and event-management approach for the three-day festival, shaping the overall Esplanade layout, creative system and onsite journey. The operational plan covered six nights of setup, partner move-in, sound checks and rehearsal, followed by three days of public programming and an overnight dismantle sequence.',
+    impact: 'KLSSF created a visible public platform for Petrosains and Dewan Filharmonik PETRONAS, turning the KLCC Esplanade into a shared destination for exploration, creativity and STEM discovery. The project demonstrated how disciplined planning and strong creative direction can make a complex public-space programme feel effortless to its audience.',
+    metrics: [
+      { value: '3', label: 'Days of Public Festival', icon: 'calendar' },
+      { value: '6', label: 'Overnight Setup Windows', icon: 'screen' },
+      { value: '1', label: 'Shared Public Destination', icon: 'globe' },
+    ],
+    photos: ['/assets/cases/klssf-cover.webp', '/assets/cases/klssf-02.webp', '/assets/cases/klssf-03.webp', '/assets/cases/klssf-04.webp', '/assets/cases/klssf-05.webp'] },
+  { n: '12', client: 'Nestlé', title: 'KITKAT Chocolate Drink Activation 2026', headline: "Break Your Routine", category: 'Brand Activation', hidden: true, photo: '/assets/cases/kitkat-drink-cover.webp',
+    challenge: 'Turn KitKat Drink’s “Have a Break” equity into a relevant, real-world response to the everyday pressure felt by students and young professionals — while driving product trial, purchase and repeat consideration across a nationwide activation.',
+    experience: 'A two-part activation that takes the brand beyond conventional sampling. Guerrilla moments interrupt everyday routines with surprising, talk-worthy “break” experiences, while the roadshow brings product discovery to consumers through sampling, engagement games, sales and redemption. The rollout spans 50 days across Central, North and South Coast Malaysia, supported by a clear consumer journey from trial to purchase.',
+    impact: 'The activation is giving KitKat Drink a visible platform in the places where its audience studies, works and takes a pause. By combining experiential engagement with a direct path to sampling and sales, it is designed to convert a small everyday break into a memorable brand habit.',
+    metrics: [
+      { value: '50', label: 'Days of Activation', icon: 'calendar' },
+      { value: '3', label: 'Regions Nationwide', icon: 'globe' },
+      { value: '2', label: 'Activation Formats', icon: 'screen' },
+    ],
+    photos: ['/assets/cases/kitkat-drink-01.webp', '/assets/cases/kitkat-drink-02.webp', '/assets/cases/kitkat-drink-03.webp', '/assets/cases/kitkat-drink-04.webp', '/assets/cases/kitkat-drink-05.webp', '/assets/cases/kitkat-drink-06.webp'] },
 ];
 
 // Cases featured in the homepage "Selected Cases" slider only. The /work page

@@ -31,10 +31,15 @@ def warn(msg):
 
 
 def fetch_campaign(cid):
+    import os
+
+    on_vps = os.path.exists("/opt/listmonk/.api")
+
     def api(path):
         creds = 'H="Authorization: token $(sed -n 1p /opt/listmonk/.api | cut -d= -f2):$(sed -n 2p /opt/listmonk/.api | cut -d= -f2)"'
+        cmd = f'{creds}; curl -s -m 30 -H "$H" http://localhost:9000{path}'
         out = subprocess.run(
-            SSH + [f'{creds}; curl -s -m 30 -H "$H" http://localhost:9000{path}'],
+            ["bash", "-c", cmd] if on_vps else SSH + [cmd],
             capture_output=True, text=True, check=True,
         ).stdout
         return json.loads(out)["data"]
