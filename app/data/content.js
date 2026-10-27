@@ -226,7 +226,7 @@ export const cases = [
       { value: '49%', label: 'Higher Attendance than KLSSF 2025', icon: 'trend' },
       { value: '377', label: 'Students Completed the 10-Station STEM Trail', sub: 'From 285 families across 14 states', icon: 'calendar' },
     ],
-    photos: ['/assets/cases/klssf-01.webp', '/assets/cases/klssf-02.webp', '/assets/cases/klssf-03.webp', '/assets/cases/klssf-04.webp', '/assets/cases/klssf-05.webp', '/assets/cases/klssf-06.webp', '/assets/cases/klssf-07.webp'] },
+    photos: ['/assets/cases/klssf-01.webp', '/assets/cases/klssf-08.webp', '/assets/cases/klssf-02.webp', '/assets/cases/klssf-03.webp', '/assets/cases/klssf-09.webp', '/assets/cases/klssf-10.webp', '/assets/cases/klssf-04.webp', '/assets/cases/klssf-05.webp', '/assets/cases/klssf-11.webp', '/assets/cases/klssf-06.webp', '/assets/cases/klssf-07.webp'] },
   { n: '12', client: 'Nestlé', title: 'KITKAT Chocolate Drink Activation', headline: "Break Your Routine", category: 'Brand Activation', hidden: true, photo: '/assets/cases/kitkat-drink-cover.webp',
     challenge: 'Turn KitKat Drink’s “Have a Break” equity into a relevant, real-world response to the everyday pressure felt by students and young professionals — while driving product trial, purchase and repeat consideration across a nationwide activation.',
     experience: 'A two-part activation that takes the brand beyond conventional sampling. Guerrilla moments interrupt everyday routines with surprising, talk-worthy “break” experiences, while the roadshow brings product discovery to consumers through sampling, engagement games, sales and redemption. The rollout spans 50 days across Central, North and South Coast Malaysia, supported by a clear consumer journey from trial to purchase.',
