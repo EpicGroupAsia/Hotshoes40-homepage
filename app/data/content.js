@@ -212,7 +212,6 @@ export const cases = [
     impact: 'AIA’s advisors experienced one connected conference rather than a series of separate sessions — supported by a responsive production setup that accommodated late changes without losing the energy or intent of the programme.',
     metrics: [
       { value: '2,800', label: 'Conference Attendees', icon: 'users' },
-      { value: '1,700', label: 'Dinner Guests', icon: 'users' },
       { value: '11', label: 'Business-Unit Booths Activated', icon: 'globe' },
       { value: '3', label: 'Halls Linked by Live Broadcast', sub: 'Delivered with 48 hours’ notice', icon: 'screen' },
     ],
