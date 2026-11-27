@@ -262,7 +262,7 @@ export const cases = [
     impact: 'The programme elevated supplier recognition into a memorable expression of partnership, strengthening pride in the EcoShop network and its shared ambition for growth.',
     metrics: [
       { value: '67', label: 'Supplier Awards', sub: 'In 11 categories', icon: 'trend' },
-      { value: '32-Piece', label: 'Orchestra', sub: 'Led by Datuk Mokhzani Ismail', icon: 'screen' },
+      { value: '32', label: 'Piece Orchestra', sub: 'Led by Datuk Mokhzani Ismail', icon: 'screen' },
       { value: '2', label: 'Bella Astillah & Misha Omar', sub: 'Headline performers', icon: 'users' },
     ],
     photos: ['/assets/cases/ecoshop-sos-01.webp', '/assets/cases/ecoshop-sos-02.webp', '/assets/cases/ecoshop-sos-03.webp', '/assets/cases/ecoshop-sos-04.webp', '/assets/cases/ecoshop-sos-05.webp', '/assets/cases/ecoshop-sos-06.webp', '/assets/cases/ecoshop-sos-07.webp'] },
