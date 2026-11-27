@@ -261,7 +261,7 @@ export const cases = [
     experience: 'A full-day business meeting flowed into a high-energy awards dinner, with leadership sessions, industry panels and recognition for more than 60 supplier recipients. A star-led stage, live orchestra and headline performances kept the celebration moving.',
     impact: 'The programme elevated supplier recognition into a memorable expression of partnership, strengthening pride in the EcoShop network and its shared ambition for growth.',
     metrics: [
-      { value: '500', label: 'Guests', sub: 'Across 48 tables', icon: 'users' },
+      { value: '500', label: 'Guests', icon: 'users' },
       { value: '67', label: 'Supplier Awards', sub: 'In 11 categories', icon: 'trend' },
       { value: '32-Piece', label: 'Orchestra', sub: 'Plus 2 headline stars', icon: 'screen' },
     ],
