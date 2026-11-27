@@ -241,7 +241,7 @@ export const cases = [
     experience: 'Mid Valley’s Centre Court was transformed into a high-visibility launch platform, bringing product discovery, expert-led storytelling and guest engagement into one clear journey. From the spatial design to the show flow, each touchpoint made the range easy to explore, photograph and share—turning a new-product introduction into a confident public brand moment.',
     impact: 'The launch gave Effaclar Supramolecular a strong first moment in market, creating meaningful visibility among media, consumers and mall audiences. It reinforced La Roche-Posay’s position at the intersection of dermatological expertise and everyday skincare confidence.',
     metrics: [
-      { value: '1', label: 'Thai Superstar Headliner', icon: 'users' },
+      { value: '1', label: 'Thai Superstar Headliner', sub: 'Perth Tanapon', icon: 'users' },
       { value: '78', label: 'Media & KOLs', icon: 'globe' },
       { value: '8', label: 'Experience Zones', sub: 'Built overnight in Mid Valley Centre Court', icon: 'screen' },
     ],
