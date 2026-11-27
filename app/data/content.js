@@ -256,7 +256,7 @@ export const cases = [
       { value: '1', label: 'Immersive Hong Kong Street-Scene Set', icon: 'globe' },
     ],
     photos: ['/assets/cases/hktb-mice-01.webp', '/assets/cases/hktb-mice-02.webp', '/assets/cases/hktb-mice-03.webp', '/assets/cases/hktb-mice-04.webp', '/assets/cases/hktb-mice-05.webp', '/assets/cases/hktb-mice-06.webp', '/assets/cases/hktb-mice-07.webp'] },
-  { n: '15', client: 'Eco-Shop', title: 'EcoShop Star of Success', headline: "A Night That Put Partnership in the Spotlight", category: 'Corporate Event', hidden: true, photo: '/assets/cases/ecoshop-sos-cover.webp',
+  { n: '15', client: 'Eco-Shop', title: 'EcoShop Star of Success', headline: "A Night That Put Partnership in the Spotlight", category: 'Corporate Event', hidden: true, photo: '/assets/cases/ecoshop-sos-cover.webp', photoPosition: 'center top',
     challenge: 'Create an awards night that honoured EcoShop’s suppliers while bringing leaders and partners together around the business’s growth story.',
     experience: 'A full-day business meeting flowed into a high-energy awards dinner, with leadership sessions, industry panels and recognition for more than 60 supplier recipients. A star-led stage, Datuk Mokhzani Ismail’s 32-piece DM Orchestra and headline performances by Bella Astillah and Misha Omar kept the celebration moving.',
     impact: 'The programme elevated supplier recognition into a memorable expression of partnership, strengthening pride in the EcoShop network and its shared ambition for growth.',

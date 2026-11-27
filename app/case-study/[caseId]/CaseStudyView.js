@@ -218,7 +218,7 @@ export default function CaseStudyView({ caseId }) {
             />
           </div>
         ) : (
-          <img src={cs.photo} alt={cs.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={cs.photo} alt={cs.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: cs.photoPosition || 'center' }} />
         )}
         <div style={{ position: 'absolute', inset: 0, background: hasHeroVideo
           ? 'linear-gradient(0deg, rgba(7,6,15,0.98) 0%, rgba(7,6,15,0.7) 35%, rgba(7,6,15,0.25) 65%, rgba(7,6,15,0.5) 100%)'
