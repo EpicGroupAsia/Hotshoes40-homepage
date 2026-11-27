@@ -263,7 +263,7 @@ export const cases = [
     metrics: [
       { value: '500', label: 'Guests', icon: 'users' },
       { value: '67', label: 'Supplier Awards', sub: 'In 11 categories', icon: 'trend' },
-      { value: '32-Piece', label: 'Orchestra', sub: 'Plus 2 headline stars', icon: 'screen' },
+      { value: '32-Piece', label: 'Orchestra', sub: 'Led by Datuk Mokhzani Ismail, with Bella Astillah & Misha Omar', icon: 'screen' },
     ],
     photos: ['/assets/cases/ecoshop-sos-01.webp', '/assets/cases/ecoshop-sos-02.webp', '/assets/cases/ecoshop-sos-03.webp', '/assets/cases/ecoshop-sos-04.webp', '/assets/cases/ecoshop-sos-05.webp', '/assets/cases/ecoshop-sos-06.webp', '/assets/cases/ecoshop-sos-07.webp'] },
 ];
