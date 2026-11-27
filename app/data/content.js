@@ -241,9 +241,9 @@ export const cases = [
     experience: 'Mid Valley’s Centre Court was transformed into a high-visibility launch platform, bringing product discovery, expert-led storytelling and guest engagement into one clear journey. From the spatial design to the show flow, each touchpoint made the range easy to explore, photograph and share—turning a new-product introduction into a confident public brand moment.',
     impact: 'The launch gave Effaclar Supramolecular a strong first moment in market, creating meaningful visibility among media, consumers and mall audiences. It reinforced La Roche-Posay’s position at the intersection of dermatological expertise and everyday skincare confidence.',
     metrics: [
-      { value: '80–100', label: 'Guests', icon: 'users' },
-      { value: '2-Hour', label: 'Media Launch', icon: 'calendar' },
-      { value: '1', label: 'Custom Supramolecular Reveal Gambit', icon: 'screen' },
+      { value: '1', label: 'Thai Superstar Headliner', icon: 'users' },
+      { value: '78', label: 'Media & KOLs', icon: 'globe' },
+      { value: '8', label: 'Experience Zones', sub: 'Built overnight in Mid Valley Centre Court', icon: 'screen' },
     ],
     photos: ['/assets/cases/lrp-effaclar-01.webp', '/assets/cases/lrp-effaclar-02.webp', '/assets/cases/lrp-effaclar-03.webp', '/assets/cases/lrp-effaclar-04.webp', '/assets/cases/lrp-effaclar-05.webp', '/assets/cases/lrp-effaclar-06.webp', '/assets/cases/lrp-effaclar-07.webp'] },
   { n: '14', client: 'Hong Kong Tourism Board', title: 'Hong Kong MICE Trade Update', headline: "Where Business Events Find Their Next Destination", category: 'M.I.C.E.', hidden: true, photo: '/assets/cases/hktb-mice-cover.webp',
@@ -251,9 +251,9 @@ export const cases = [
     experience: 'A polished, purposeful setting for industry partners to meet, exchange ideas and discover the possibilities Hong Kong offers. The experience balanced destination storytelling with meaningful face-to-face engagement, giving delegates an atmosphere that was both professional and welcoming.',
     impact: 'The trade update strengthened visibility for Hong Kong among key Malaysian MICE decision-makers and opened the door to future conversations, leads and partnerships. It positioned the destination not just as a place to visit, but as a place where ambitious business events can happen.',
     metrics: [
-      { value: '60', label: 'Trade Guests', icon: 'users' },
-      { value: '240', label: 'Collectible Keycaps Distributed', icon: 'globe' },
-      { value: '5-Hour', label: 'Programme', icon: 'calendar' },
+      { value: '60', label: 'MICE Decision-Makers', icon: 'users' },
+      { value: '240', label: 'Custom Keycaps Crafted On Site', icon: 'screen' },
+      { value: '1', label: 'Immersive Hong Kong Street-Scene Set', icon: 'globe' },
     ],
     photos: ['/assets/cases/hktb-mice-01.webp', '/assets/cases/hktb-mice-02.webp', '/assets/cases/hktb-mice-03.webp', '/assets/cases/hktb-mice-04.webp', '/assets/cases/hktb-mice-05.webp', '/assets/cases/hktb-mice-06.webp', '/assets/cases/hktb-mice-07.webp'] },
   { n: '15', client: 'Eco-Shop', title: 'EcoShop Star of Success', headline: "A Night That Put Partnership in the Spotlight", category: 'Corporate Event', hidden: true, photo: '/assets/cases/ecoshop-sos-cover.webp',
@@ -261,9 +261,9 @@ export const cases = [
     experience: 'A full-day business meeting flowed into a high-energy awards dinner, with leadership sessions, industry panels and recognition for more than 60 supplier recipients. A star-led stage, live orchestra and headline performances kept the celebration moving.',
     impact: 'The programme elevated supplier recognition into a memorable expression of partnership, strengthening pride in the EcoShop network and its shared ambition for growth.',
     metrics: [
-      { value: '500', label: 'Guests', icon: 'users' },
-      { value: '67', label: 'Supplier Awards', icon: 'trend' },
-      { value: '32-Piece', label: 'Orchestra', icon: 'screen' },
+      { value: '500', label: 'Guests', sub: 'Across 48 tables', icon: 'users' },
+      { value: '67', label: 'Supplier Awards', sub: 'In 11 categories', icon: 'trend' },
+      { value: '32-Piece', label: 'Orchestra', sub: 'Plus 2 headline stars', icon: 'screen' },
     ],
     photos: ['/assets/cases/ecoshop-sos-01.webp', '/assets/cases/ecoshop-sos-02.webp', '/assets/cases/ecoshop-sos-03.webp', '/assets/cases/ecoshop-sos-04.webp', '/assets/cases/ecoshop-sos-05.webp', '/assets/cases/ecoshop-sos-06.webp', '/assets/cases/ecoshop-sos-07.webp'] },
 ];
